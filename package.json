@@ -1,0 +1,7 @@
+{
+  "name": "natalis-persianas",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy"
+  }
+}
