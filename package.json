@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "node -e \"require('fs').accessSync('public/index.html'); console.log('Static site pronto em public/')\"",
-    "deploy": "wrangler deploy",
-    "deploy:pages": "wrangler pages deploy public --project-name=natalis-persianas"
+    "deploy": "wrangler pages deploy public --project-name=natalis-p --branch=main",
+    "deploy:pages": "wrangler pages deploy public --project-name=natalis-p --branch=main"
   }
 }
