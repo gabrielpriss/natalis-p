@@ -1,9 +1,19 @@
 {
   "name": "natalis-persianas",
   "private": true,
+  "description": "Landing page Nátalis Persianas — Cloudflare Pages",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "build": "node -e \"require('fs').accessSync('public/index.html'); console.log('Static site pronto em public/')\"",
-    "deploy": "wrangler pages deploy public --project-name=natalis-p --branch=main",
-    "deploy:pages": "wrangler pages deploy public --project-name=natalis-p --branch=main"
+    "images": "node scripts/optimize-images.js",
+    "build": "node scripts/verify.js",
+    "dev": "wrangler pages dev public --port 8788",
+    "deploy": "npm run build && wrangler pages deploy public --project-name=natalis-p --branch=main",
+    "deploy:preview": "npm run build && wrangler pages deploy public --project-name=natalis-p"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2",
+    "wrangler": "^4.100.0"
   }
 }

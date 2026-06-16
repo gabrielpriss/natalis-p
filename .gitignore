@@ -1,5 +1,16 @@
+node_modules/
 dist/
 .wrangler/
-.DS_Store
+.dev.vars
 .env
 .env.*
+.DS_Store
+*.log
+Thumbs.db
+
+# Configuração Vercel (migrado para Cloudflare Pages)
+vercel.json
+
+# Imagens originais não referenciadas
+public/assets/slides_site-5.jpg
+public/assets/hero-sala-jantar-luxo.png
