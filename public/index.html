@@ -38,10 +38,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     },
                     colors: {
                         brand: {
-                            blue: '#1e3362',    /* Azul Marinho principal (botões, círculos) */
-                            cyan: '#0c739a',    /* Azul claro/Ciano (fundo footer e depoimentos) */
-                            light: '#f9fafb',   /* Fundo off-white clean */
-                            dark: '#1f2937',    /* Texto escuro */
+                            blue: '#2d4255',    /* Azul slate-navy (botões, fundos escuros) */
+                            cyan: '#4e6d80',    /* Azul aço (depoimentos, accents) */
+                            slate: '#8ba0b0',   /* Slate médio (decorações, texturas) */
+                            light: '#edf3f7',   /* Off-white azulado */
+                            dark: '#1a2535',    /* Texto escuro */
                         }
                     }
                 }
@@ -58,21 +59,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             overflow-y: scroll;
             scrollbar-gutter: stable;
             scrollbar-width: thin;
-            scrollbar-color: #0c739a #f9fafb;
+            scrollbar-color: #4e6d80 #edf3f7;
         }
         html#site::-webkit-scrollbar {
             width: 10px;
         }
         html#site::-webkit-scrollbar-track {
-            background: #f9fafb;
+            background: #edf3f7;
         }
         html#site::-webkit-scrollbar-thumb {
-            background: #0c739a;
+            background: #4e6d80;
             border-radius: 999px;
-            border: 2px solid #f9fafb;
+            border: 2px solid #edf3f7;
         }
         html#site::-webkit-scrollbar-thumb:hover {
-            background: #1e3362;
+            background: #2d4255;
         }
         :root {
             --motion-duration: 0.55s;
@@ -205,7 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .hero-content .hero-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1e3362;
+            color: #2d4255;
             text-shadow: none;
             text-transform: uppercase;
             font-weight: 800;
@@ -228,11 +229,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding-top: 4rem;
             padding-bottom: 4rem;
             overflow: visible;
-            background: #f9fafb;
+            background-color: #edf3f7;
+            background-image: radial-gradient(circle, rgba(78, 109, 128, 0.18) 1.5px, transparent 1.5px);
+            background-size: 22px 22px;
         }
         @media (min-width: 640px) {
             #autoridade {
-                background: #f9fafb;
+                background-color: #edf3f7;
             }
         }
         .autoridade-cards-wrap {
@@ -318,7 +321,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             overflow: hidden;
             aspect-ratio: 2 / 3;
             cursor: pointer;
-            background: #1e3362;
+            background: #2d4255;
         }
         .produto-card img {
             width: 100%;
@@ -431,8 +434,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             max-height: min(72vh, 580px);
             overflow: hidden;
             border-radius: 0.5rem;
-            background: #1e3362;
-            box-shadow: 0 20px 40px -12px rgba(30, 51, 98, 0.25);
+            background: #2d4255;
+            box-shadow: 0 20px 40px -12px rgba(45, 66, 85, 0.25);
         }
         .carousel__slide {
             position: absolute;
@@ -475,7 +478,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             justify-content: center;
             border-radius: 9999px;
             background: rgba(255, 255, 255, 0.92);
-            color: #1e3362;
+            color: #2d4255;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
@@ -487,7 +490,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: translateY(-50%) scale(1.05);
         }
         .carousel__btn:focus-visible {
-            outline: 2px solid #0c739a;
+            outline: 2px solid #4e6d80;
             outline-offset: 2px;
         }
         .carousel__btn--prev { left: 0.75rem; }
@@ -508,7 +511,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .carousel__counter {
             font-size: 0.8125rem;
             font-weight: 500;
-            color: #1e3362;
+            color: #2d4255;
             min-width: 4.5rem;
             text-align: center;
         }
@@ -535,7 +538,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .carousel__progress-bar {
             height: 100%;
             width: 0;
-            background: #0c739a;
+            background: #4e6d80;
             animation: carousel-progress var(--carousel-interval, 5s) linear infinite;
         }
         @keyframes carousel-progress {
@@ -564,7 +567,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .review-card {
             background: #fff;
-            color: #1f2937;
+            color: #1a2535;
             border-radius: 1rem;
             padding: 1.5rem 1.75rem;
             box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.2);
@@ -797,8 +800,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
         @keyframes btn-breathe {
-            0%, 100% { box-shadow: 0 4px 14px rgba(30, 51, 98, 0.2); }
-            50%       { box-shadow: 0 10px 32px rgba(30, 51, 98, 0.4); }
+            0%, 100% { box-shadow: 0 4px 14px rgba(45, 66, 85, 0.2); }
+            50%       { box-shadow: 0 10px 32px rgba(45, 66, 85, 0.4); }
         }
 
         /* Reduced motion — desativa animações CSS do hero */
@@ -1001,6 +1004,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 font-size: 0.82rem;
             }
         }
+
+        /* ── Identidade Visual: Estrela 4 pontas nos rótulos de seção ─────── */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+        .section-label::before {
+            content: '✦';
+            font-style: normal;
+            font-size: 0.8em;
+            opacity: 0.75;
+            flex-shrink: 0;
+            letter-spacing: 0;
+        }
+
+        /* ── Ghost watermark em seções ───────────────────────────────────── */
+        .section-watermark {
+            position: relative;
+            overflow: hidden;
+        }
+        .section-watermark::before {
+            content: attr(data-watermark);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(4rem, 22vw, 16rem);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(78, 109, 128, 0.09);
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+            user-select: none;
+            line-height: 1;
+        }
+        .section-watermark > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Triângulos decorativos no hero (desktop) ────────────────────── */
+        .hero-deco {
+            position: absolute;
+            pointer-events: none;
+        }
+        .hero-deco--tl {
+            top: 0;
+            right: 0;
+            width: 42%;
+            height: 58%;
+            background: rgba(220, 232, 238, 0.18);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            z-index: 1;
+        }
+        .hero-deco--br {
+            bottom: 0;
+            right: 0;
+            width: 26%;
+            height: 38%;
+            background: rgba(45, 66, 85, 0.25);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            z-index: 1;
+        }
+        @media (max-width: 767px) {
+            .hero-deco { display: none; }
+        }
+
     </style>
     <noscript>
         <style>
@@ -1020,6 +1095,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 1. Dobra Principal (Hero) — slider de fundo automático -->
     <header id="inicio" class="hero-bg pt-16 sm:pt-20 pb-20 sm:pb-24 lg:pt-28 lg:pb-28 flex items-center">
         <div class="hero-bg__slides" id="hero-slides" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco--tl" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco--br" aria-hidden="true"></div>
         <div class="hero-content section-container w-full">
             <a href="#inicio" class="site-logo mb-6 sm:mb-8" aria-label="Nátalis Persianas, voltar ao início">
                 <img
@@ -1058,9 +1135,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="galeria" class="py-12 sm:py-16" aria-labelledby="galeria-titulo">
         <div class="section-container max-w-6xl">
             <div class="text-center mb-8 sm:mb-12">
-                <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-3">Portfólio</p>
+                <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-white/80 mb-3">Portfólio</p>
                 <h2 id="galeria-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Galeria de Projetos</h2>
-                <div class="w-14 h-px bg-cyan-300 mx-auto mb-4" aria-hidden="true"></div>
+                <div class="w-14 h-px bg-white/40 mx-auto mb-4" aria-hidden="true"></div>
                 <p class="text-white/70 font-light text-sm sm:text-base max-w-2xl mx-auto">Alguns dos nossos trabalhos em cortinas e persianas sob medida.</p>
             </div>
 
@@ -1093,7 +1170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- 3. Nossas Soluções (Layout Alternado igual a imagem) -->
-    <section id="produtos" class="py-12 sm:py-16 bg-white" aria-labelledby="produtos-titulo">
+    <section id="produtos" class="py-12 sm:py-16 bg-white section-watermark" data-watermark="PRODUTOS" aria-labelledby="produtos-titulo">
         <div class="section-container max-w-6xl">
             <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Soluções</p>
@@ -1243,7 +1320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Seção Institucional -->
-    <section id="institucional" class="py-16 sm:py-24 bg-brand-light" aria-labelledby="institucional-titulo">
+    <section id="institucional" class="py-16 sm:py-24 bg-brand-light section-watermark" data-watermark="TRADIÇÃO" aria-labelledby="institucional-titulo">
         <div class="section-container">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div data-aos="fade-right">
@@ -1277,14 +1354,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="depoimentos" class="bg-brand-cyan text-white py-12 sm:py-16 md:py-20" aria-labelledby="depoimentos-titulo">
         <div class="section-container">
             <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
-                <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 mb-3">Avaliações</p>
+                <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-white/60 mb-3">Avaliações</p>
                 <h2 id="depoimentos-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-2">O que falam de nós</h2>
                 <div class="w-14 h-px bg-white/40 mx-auto mb-5" aria-hidden="true"></div>
                 <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 mb-2 px-2">
                     <span class="font-bold text-base sm:text-lg">EXCELENTE</span>
                     <span class="text-yellow-400 tracking-widest text-lg sm:text-xl" aria-hidden="true">★★★★★</span>
                 </div>
-                <p class="text-xs sm:text-sm text-cyan-100 mb-3">Com base em 249 avaliações do Google</p>
+                <p class="text-xs sm:text-sm text-white/70 mb-3">Com base em 249 avaliações do Google</p>
                 <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Av.+Pres.+Get%C3%BAlio+Vargas+1153+Curitiba&hl=pt-BR" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center justify-center gap-2.5 mt-1 px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-cyan bg-white rounded-md shadow-lg hover:bg-gray-50 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-motion">
                     <i class="fab fa-google text-base sm:text-lg text-[#4285F4]" aria-hidden="true"></i>
                     Faça uma avaliação no Google
@@ -1387,7 +1464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </main>
 
     <!-- 5. Rodapé -->
-    <footer id="contato" class="bg-[#0a6587] text-white border-t border-cyan-700">
+    <footer id="contato" class="bg-[#2d4255] text-white border-t border-white/20">
 
         <!-- Mapa: vincular no Google Meu Negócio pelo nome "Nátalis Persianas" (zoom 13 = bairros próximos visíveis) -->
         <div id="mapa" class="w-full" style="height:380px;">
@@ -1409,10 +1486,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Col 1: Marca + info -->
             <div id="quem-somos" data-aos="fade-up">
                 <img src="assets/natalis-logo.webp" alt="Nátalis Persianas" class="h-10 sm:h-12 mb-5 brightness-0 invert">
-                <p class="text-sm font-light leading-relaxed text-cyan-100 mb-6 max-w-xs">
+                <p class="text-sm font-light leading-relaxed text-white/70 mb-6 max-w-xs">
                     Há mais de 28 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
                 </p>
-                <div class="space-y-3 text-sm font-light text-cyan-100">
+                <div class="space-y-3 text-sm font-light text-white/70">
                     <p class="flex items-center gap-2">
                         <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
                         Seg a Sex, 09:00 às 17:30
@@ -1423,10 +1500,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </p>
                     <p class="flex items-start gap-2">
                         <i class="fas fa-location-dot fa-fw mt-0.5 shrink-0" aria-hidden="true"></i>
-                        <span>Av. Pres. Getúlio Vargas, 1153, Loja 39<br>Rebouças, Curitiba, PR, 80250-180<br><span class="text-cyan-200">🚗 Estacionamento próprio</span></span>
+                        <span>Av. Pres. Getúlio Vargas, 1153, Loja 39<br>Rebouças, Curitiba, PR, 80250-180<br><span class="text-white/60">🚗 Estacionamento próprio</span></span>
                     </p>
                     <p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Curitiba" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-cyan-100 hover:text-white transition-colors">
+                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Curitiba" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors">
                             <i class="fab fa-google" aria-hidden="true"></i>
                             Ver Nátalis Persianas no Google Maps
                         </a>
@@ -1436,21 +1513,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!-- Col 2: Navegação -->
             <nav aria-label="Navegação do rodapé" data-aos="fade-up" data-aos-delay="100">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-cyan-300 mb-5">Navegação</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-5">Navegação</h4>
                 <ul class="space-y-3">
-                    <li><a href="#inicio"      class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Início</a></li>
-                    <li><a href="#galeria"     class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Galeria de Projetos</a></li>
-                    <li><a href="#cortinas"    class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Cortinas</a></li>
-                    <li><a href="#persianas"   class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Persianas</a></li>
-                    <li><a href="#depoimentos" class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Avaliações</a></li>
-                    <li><a href="#contato"     class="text-sm text-cyan-100 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-cyan-400"></i>Contato</a></li>
+                    <li><a href="#inicio"      class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Início</a></li>
+                    <li><a href="#galeria"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Galeria de Projetos</a></li>
+                    <li><a href="#cortinas"    class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Cortinas</a></li>
+                    <li><a href="#persianas"   class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Persianas</a></li>
+                    <li><a href="#depoimentos" class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Avaliações</a></li>
+                    <li><a href="#contato"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Contato</a></li>
                 </ul>
             </nav>
 
             <!-- Col 3: Fale conosco -->
             <div class="sm:col-span-2 lg:col-span-1">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-cyan-300 mb-5">Fale Conosco</h4>
-                <p class="text-sm text-cyan-100 font-light mb-5 leading-relaxed">Solicite um orçamento gratuito. Atendemos em Curitiba e região com medição e instalação inclusa.</p>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-5">Fale Conosco</h4>
+                <p class="text-sm text-white/70 font-light mb-5 leading-relaxed">Solicite um orçamento gratuito. Atendemos em Curitiba e região com medição e instalação inclusa.</p>
                 <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-2.5 rounded-md hover:bg-[#1ebd5a] transition">
                     <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
                     Chamar no WhatsApp
@@ -1459,7 +1536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- Copyright -->
-        <div id="rodape-legal" class="section-container py-5 pb-28 md:pb-5 border-t border-cyan-800 text-center text-xs text-cyan-300">
+        <div id="rodape-legal" class="section-container py-5 pb-28 md:pb-5 border-t border-white/10 text-center text-xs text-white/80">
             © 2026 Nátalis Persianas · Todos os direitos reservados · Desenvolvido com foco em conversão
         </div>
     </footer>
