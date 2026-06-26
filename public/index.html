@@ -1006,27 +1006,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* ── Backgrounds geométricos nas seções ─────────────────────────── */
-        #institucional {
+        /* ── Background geométrico repetido nas seções brancas ──────────── */
+        #produtos, #institucional, #autoridade {
             background-image:
-                linear-gradient(rgba(237, 243, 247, 0.85), rgba(237, 243, 247, 0.85)),
-                url("assets/file2 (3).png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+                linear-gradient(rgba(237, 243, 247, 0.88), rgba(237, 243, 247, 0.88)),
+                url("assets/file1 (4).png");
+            background-repeat: repeat;
+            background-size: 320px auto;
         }
         #produtos {
             background-image:
                 linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
-                url("assets/file3 (3).png");
-            background-size: cover;
-            background-position: right center;
-            background-repeat: no-repeat;
-        }
-        @media (max-width: 639px) {
-            #institucional, #produtos {
-                background-image: none;
-            }
+                url("assets/file1 (4).png");
         }
 
         /* ── Identidade Visual: Estrela 4 pontas nos rótulos de seção ─────── */
