@@ -1001,31 +1001,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* ── Background geométrico unificado com parallax ─────────────────── */
+        /* ── Background: triângulos de canto + parallax ───────────────────── */
         #produtos,
         #institucional,
         #autoridade {
             background-color: #edf3f7;
             background-image:
-                radial-gradient(circle, rgba(45, 66, 85, 0.09) 1.5px, transparent 1.5px),
-                linear-gradient(148deg,
-                    rgba(45, 66, 85, 0.16) 0%,      rgba(45, 66, 85, 0.16) 22%,
-                    transparent              22%,    transparent              36%,
-                    rgba(78, 109, 128, 0.12) 36%,   rgba(78, 109, 128, 0.12) 54%,
-                    transparent              54%,    transparent              66%,
-                    rgba(139, 160, 176, 0.10) 66%,  rgba(139, 160, 176, 0.10) 80%,
-                    transparent              80%
-                );
-            background-size: 22px 22px, 100vw 100vh;
-            background-position: 0 0, 0 0;
-            background-repeat: repeat, no-repeat;
+                radial-gradient(circle, rgba(45, 66, 85, 0.08) 1.5px, transparent 1.5px),
+                linear-gradient(135deg, rgba(45, 66, 85, 0.17) 44%, transparent 44%),
+                linear-gradient(315deg, rgba(78, 109, 128, 0.13) 38%, transparent 38%),
+                linear-gradient(45deg,  rgba(139, 160, 176, 0.10) 24%, transparent 24%);
+            background-size: 22px 22px, 100vw 100vh, 100vw 100vh, 100vw 100vh;
+            background-position: 0 0, 0 0, 0 0, 0 0;
+            background-repeat: repeat, no-repeat, no-repeat, no-repeat;
             background-attachment: fixed;
         }
-        /* Fallback iOS/touch: fixed não funciona em Safari mobile */
         @media (hover: none) {
             #produtos, #institucional, #autoridade {
                 background-attachment: scroll;
-                background-size: 22px 22px, 100% 100%;
+                background-size: 22px 22px, 100% 100%, 100% 100%, 100% 100%;
             }
         }
 
