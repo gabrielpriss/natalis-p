@@ -230,14 +230,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding-top: 4rem;
             padding-bottom: 4rem;
             overflow: visible;
-            background-color: #edf3f7;
-            background-image: radial-gradient(circle, rgba(78, 109, 128, 0.18) 1.5px, transparent 1.5px);
-            background-size: 22px 22px;
         }
         @media (min-width: 640px) {
-            #autoridade {
-                background-color: #edf3f7;
-            }
+            #autoridade { background-color: #edf3f7; }
         }
         .autoridade-cards-wrap {
             position: relative;
@@ -1006,56 +1001,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* ── Backgrounds geométricos CSS — fiéis às imagens de referência ─ */
-
-        /* #produtos → file3: dark slate esq | faixa branca diagonal | slate médio dir */
-        #produtos {
-            background-color: #edf3f7;
-            background-image:
-                radial-gradient(circle, rgba(45, 66, 85, 0.22) 1.5px, transparent 1.5px),
-                linear-gradient(148deg,
-                    rgba(45, 66, 85, 0.48) 0%,     rgba(45, 66, 85, 0.48) 30%,
-                    white                   30%,     white                   48%,
-                    rgba(78, 109, 128, 0.40) 48%,   rgba(78, 109, 128, 0.40) 72%,
-                    rgba(139, 160, 176, 0.22) 72%
-                );
-            background-size: 22px 22px, 100% 100%;
-            background-position: bottom right, 0 0;
-            background-repeat: repeat, no-repeat;
-        }
-
-        /* #institucional → file2: chevron branco cruzado, dark laterais */
-        #institucional {
-            background-color: #edf3f7;
-            background-image:
-                radial-gradient(circle, rgba(45, 66, 85, 0.18) 1.5px, transparent 1.5px),
-                linear-gradient(135deg,
-                    rgba(45, 66, 85, 0.42) 0%,     rgba(45, 66, 85, 0.42) 28%,
-                    white                   28%,     white                   44%,
-                    rgba(78, 109, 128, 0.34) 44%,   rgba(78, 109, 128, 0.34) 60%,
-                    white                   60%,     white                   74%,
-                    rgba(45, 66, 85, 0.38) 74%
-                );
-            background-size: 22px 22px, 100% 100%;
-            background-position: bottom right, 0 0;
-            background-repeat: repeat, no-repeat;
-        }
-
-        /* #autoridade → file1: faixas diagonais finas alternadas */
+        /* ── Background geométrico unificado com parallax ─────────────────── */
+        #produtos,
+        #institucional,
         #autoridade {
             background-color: #edf3f7;
             background-image:
+                radial-gradient(circle, rgba(45, 66, 85, 0.09) 1.5px, transparent 1.5px),
                 linear-gradient(148deg,
-                    rgba(200, 218, 230, 0.70) 0%,   rgba(200, 218, 230, 0.70) 16%,
-                    white                    16%,    white                    26%,
-                    rgba(185, 206, 220, 0.58) 26%,  rgba(185, 206, 220, 0.58) 40%,
-                    white                    40%,    white                    50%,
-                    rgba(170, 195, 212, 0.50) 50%,  rgba(170, 195, 212, 0.50) 64%,
-                    white                    64%,    white                    73%,
-                    rgba(155, 183, 202, 0.42) 73%
+                    rgba(45, 66, 85, 0.16) 0%,      rgba(45, 66, 85, 0.16) 22%,
+                    transparent              22%,    transparent              36%,
+                    rgba(78, 109, 128, 0.12) 36%,   rgba(78, 109, 128, 0.12) 54%,
+                    transparent              54%,    transparent              66%,
+                    rgba(139, 160, 176, 0.10) 66%,  rgba(139, 160, 176, 0.10) 80%,
+                    transparent              80%
                 );
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
+            background-size: 22px 22px, 100vw 100vh;
+            background-position: 0 0, 0 0;
+            background-repeat: repeat, no-repeat;
+            background-attachment: fixed;
+        }
+        /* Fallback iOS/touch: fixed não funciona em Safari mobile */
+        @media (hover: none) {
+            #produtos, #institucional, #autoridade {
+                background-attachment: scroll;
+                background-size: 22px 22px, 100% 100%;
+            }
         }
 
         /* ── Identidade Visual: Estrela 4 pontas nos rótulos de seção ─────── */
