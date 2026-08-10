@@ -1101,6 +1101,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .hero-deco { display: none; }
         }
 
+        /* ── Antes & Depois: comparador interativo ───────────────────────── */
+        .ba-compare {
+            --pos: 50%;
+            position: relative;
+            aspect-ratio: 3 / 4;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(26, 37, 53, 0.16);
+            user-select: none;
+            -webkit-user-select: none;
+            background: #dfe7ee;
+        }
+        .ba-compare__img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+        .ba-compare__after {
+            position: absolute;
+            inset: 0;
+            clip-path: inset(0 0 0 var(--pos));
+        }
+        .ba-compare__divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: var(--pos);
+            width: 2px;
+            margin-left: -1px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 8px rgba(26, 37, 53, 0.4);
+            pointer-events: none;
+        }
+        .ba-compare__handle {
+            position: absolute;
+            top: 50%;
+            left: var(--pos);
+            transform: translate(-50%, -50%);
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #ffffff;
+            color: #2d4255;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.15rem;
+            font-size: 0.7rem;
+            box-shadow: 0 4px 14px rgba(26, 37, 53, 0.35);
+            pointer-events: none;
+        }
+        .ba-compare__badge {
+            position: absolute;
+            top: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+        .ba-compare__badge--antes {
+            left: 0.75rem;
+            background: rgba(26, 37, 53, 0.55);
+            color: #ffffff;
+        }
+        .ba-compare__badge--depois {
+            right: 0.75rem;
+            background: rgba(255, 255, 255, 0.85);
+            color: #2d4255;
+        }
+        .ba-compare__range {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            cursor: ew-resize;
+            -webkit-appearance: none;
+            appearance: none;
+            touch-action: pan-y;
+        }
+        .ba-compare__range:focus-visible ~ .ba-compare__handle {
+            outline: 3px solid #4e6d80;
+            outline-offset: 3px;
+        }
+
     </style>
     <noscript>
         <style>
@@ -1371,6 +1465,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.5 Antes & Depois (comparador interativo) -->
+    <section id="antes-depois" class="py-12 sm:py-16 bg-brand-light section-watermark" data-watermark="RESULTADOS" aria-labelledby="antes-depois-titulo">
+        <div class="section-container max-w-6xl">
+            <div class="text-center mb-10 sm:mb-14" data-aos="fade-up">
+                <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Transformações</p>
+                <h2 id="antes-depois-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-4">Antes e Depois</h2>
+                <div class="w-14 h-px bg-brand-cyan mx-auto mb-4" aria-hidden="true"></div>
+                <p class="text-gray-600 font-light text-sm sm:text-base max-w-2xl mx-auto">Arraste o controle sobre cada foto e veja como a persiana ou cortina certa transforma o ambiente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                <figure data-aos="fade-up">
+                    <div class="ba-compare" data-ba>
+                        <img class="ba-compare__img" src="assets/antes-varanda-gourmet.webp" alt="Varanda gourmet antes: janela sem proteção, com luz e calor direto" loading="lazy" width="1126" height="1397">
+                        <div class="ba-compare__after">
+                            <img class="ba-compare__img" src="assets/depois-varanda-gourmet.webp" alt="Varanda gourmet depois: persiana dupla sob medida filtrando a luz" loading="lazy" width="828" height="1020">
+                        </div>
+                        <div class="ba-compare__divider" aria-hidden="true"></div>
+                        <span class="ba-compare__badge ba-compare__badge--antes">Antes</span>
+                        <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
+                        <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois da varanda gourmet">
+                        <div class="ba-compare__handle" aria-hidden="true">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <figcaption class="mt-4 text-center">
+                        <p class="font-display font-bold text-brand-blue text-lg">Varanda Gourmet</p>
+                        <p class="text-sm text-gray-500 font-light">Persiana dupla sob medida</p>
+                    </figcaption>
+                </figure>
+
+                <figure data-aos="fade-up" data-aos-delay="100">
+                    <div class="ba-compare" data-ba>
+                        <img class="ba-compare__img" src="assets/antes-quarto.webp" alt="Quarto antes: janela sem cobertura, com claridade direta sobre a cama" loading="lazy" width="1024" height="1536">
+                        <div class="ba-compare__after">
+                            <img class="ba-compare__img" src="assets/depois-quarto.webp" alt="Quarto depois: persiana rolô blackout fechada, ambiente aconchegante" loading="lazy" width="1024" height="1536">
+                        </div>
+                        <div class="ba-compare__divider" aria-hidden="true"></div>
+                        <span class="ba-compare__badge ba-compare__badge--antes">Antes</span>
+                        <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
+                        <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois do quarto">
+                        <div class="ba-compare__handle" aria-hidden="true">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <figcaption class="mt-4 text-center">
+                        <p class="font-display font-bold text-brand-blue text-lg">Quarto</p>
+                        <p class="text-sm text-gray-500 font-light">Persiana rolô blackout</p>
+                    </figcaption>
+                </figure>
+
+                <figure data-aos="fade-up" data-aos-delay="200" class="sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none w-full">
+                    <div class="ba-compare" data-ba>
+                        <img class="ba-compare__img" src="assets/antes-sala-pe-direito-duplo.webp" alt="Sala com pé-direito duplo antes: janelões sem cortina" loading="lazy" width="1086" height="1448">
+                        <div class="ba-compare__after">
+                            <img class="ba-compare__img" src="assets/depois-sala-pe-direito-duplo.webp" alt="Sala com pé-direito duplo depois: cortina wave com voil sob medida" loading="lazy" width="1200" height="1600">
+                        </div>
+                        <div class="ba-compare__divider" aria-hidden="true"></div>
+                        <span class="ba-compare__badge ba-compare__badge--antes">Antes</span>
+                        <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
+                        <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois da sala com pé-direito duplo">
+                        <div class="ba-compare__handle" aria-hidden="true">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <figcaption class="mt-4 text-center">
+                        <p class="font-display font-bold text-brand-blue text-lg">Sala com Pé-Direito Duplo</p>
+                        <p class="text-sm text-gray-500 font-light">Cortina wave com voil</p>
+                    </figcaption>
+                </figure>
+
             </div>
         </div>
     </section>
@@ -1972,6 +2142,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             once:      true,
             offset:    60,
             anchorPlacement: 'top-bottom'
+        });
+    });
+    </script>
+
+    <!-- Antes & Depois: controle do comparador -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[data-ba]').forEach(function (box) {
+            var range = box.querySelector('.ba-compare__range');
+            if (!range) return;
+            var apply = function () {
+                box.style.setProperty('--pos', range.value + '%');
+            };
+            range.addEventListener('input', apply);
+            apply();
         });
     });
     </script>
