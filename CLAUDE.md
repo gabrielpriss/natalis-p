@@ -22,18 +22,22 @@ Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 
 ## SEO atual
 - Title: "Nátalis Persianas, Elegância e Conforto"
-- Canonical: não configurado ainda
-- Schema.org: não configurado ainda
+- Meta description: configurada
+- Canonical: `https://natalispersianas.com.br/`
+- Open Graph + Twitter Card: configurados (`public/og-image.jpg`, 1200x630)
+- Schema.org: JSON-LD `LocalBusiness` no `<head>`
 - sitemap.xml: não existe ainda
 - robots.txt: não existe ainda
 
 ## Assets
 - Imagens em `/public/assets/` — formato WebP preferido
 - Script de otimização: `scripts/optimize-images.js`
+- `public/og-image.jpg` fica fora de `assets/` de propósito: é servido só para
+  crawlers de link preview, que lidam melhor com JPEG do que com WebP
 
 ## Pendências SEO
-- [ ] Adicionar `<link rel="canonical">`
+- [x] Adicionar `<link rel="canonical">`
 - [ ] Criar `sitemap.xml`
 - [ ] Criar `robots.txt`
-- [ ] Adicionar Schema.org LocalBusiness em JSON-LD
+- [x] Adicionar Schema.org LocalBusiness em JSON-LD
 - [ ] Converter links WhatsApp de `api.whatsapp` para `wa.me`
