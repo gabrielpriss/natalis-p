@@ -2,9 +2,12 @@
 
 ## Stack
 - HTML estático single-page hospedado no **Cloudflare Pages**
-- Tailwind CSS via CDN (config inline no `<head>`)
-- AOS (Animate On Scroll), Font Awesome 6
-- Fontes: Montserrat (corpo), Playfair Display (títulos), Dancing Script (decorativo)
+- Tailwind CSS estático: `npm run css` gera `public/tailwind.css` a partir de `tailwind.config.js` (rodar sempre que mudar classes no HTML; `npm run build` já faz isso)
+- AOS (Animate On Scroll); ícones em sprite SVG inline no início do `<body>` (Font Awesome Free, sem a fonte de ícones)
+- Fontes: Montserrat 400/500/600/700 (corpo) e Playfair Display 700/800 (títulos)
+- Galeria e avaliações ficam no HTML (não são mais geradas por JS), para buscadores e IAs lerem
+- `public/404.html` devolve 404 real; não recriar `_redirects` com `/* /index.html 200`
+- `public/llms.txt`: resumo do negócio para IAs; manter em dia com nota, contagem de avaliações e produtos
 - Deploy automático: push em `main` → Cloudflare Pages build
 
 ## Paleta atual (identidade visual da apresentação comercial)
@@ -25,7 +28,7 @@ Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 - Meta description: configurada
 - Canonical: `https://natalispersianas.com.br/`
 - Open Graph + Twitter Card: configurados (`public/og-image.jpg`, 1200x630)
-- Schema.org: JSON-LD `LocalBusiness` no `<head>`
+- Schema.org: JSON-LD `HomeGoodsStore` no `<head>` (telefone = WhatsApp, o mesmo do perfil no Google)
 - `public/sitemap.xml` (só a home; atualizar `lastmod` quando o conteúdo mudar) e `public/robots.txt`
 
 ## Assets
@@ -39,4 +42,5 @@ Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 - [x] Criar `sitemap.xml`
 - [x] Criar `robots.txt`
 - [x] Adicionar Schema.org LocalBusiness em JSON-LD
-- [ ] Converter links WhatsApp de `api.whatsapp` para `wa.me`
+- [x] Converter links WhatsApp de `api.whatsapp` para `wa.me`
+- [ ] FAQ visível na página (precisa das respostas da cliente: prazo, garantia, pagamento, área atendida)

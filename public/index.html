@@ -40,43 +40,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:image:alt" content="Sala de estar ampla com persianas rolo instaladas pela Nátalis Persianas">
     
     <!-- Tipografia: Montserrat (corpo) + Playfair Display (títulos, elegância serif) + Dancing Script (acento decorativo) -->
+    <!-- Foto de capa do hero: baixa cedo, na versão certa para a largura da tela -->
+    <link rel="preload" as="image" href="assets/hero-background-m.webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/hero-background.webp" media="(min-width: 768px)" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Dancing+Script:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome 6 Free -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- AOS (Animate On Scroll) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config: Cores baseadas na Identidade Visual da imagem -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        display: ['Playfair Display', 'Georgia', 'serif'],
-                        script: ['Dancing Script', 'cursive'],
-                    },
-                    colors: {
-                        brand: {
-                            blue: '#2d4255',    /* Azul slate-navy (botões, fundos escuros) */
-                            cyan: '#4e6d80',    /* Azul aço (depoimentos, accents) */
-                            slate: '#8ba0b0',   /* Slate médio (decorações, texturas) */
-                            light: '#edf3f7',   /* Off-white azulado */
-                            dark: '#1a2535',    /* Texto escuro */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     
     <style>
         /* Um único scroll na página — html#site (evita barra dupla) */
@@ -439,6 +414,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
+        /* Capa do hero direto no CSS: não espera o JavaScript e usa a foto menor no celular */
+        .hero-bg__slide--capa {
+            background-image: url('assets/hero-background.webp');
+            background-position: center center;
+        }
+        @media (max-width: 767px) {
+            .hero-bg__slide--capa {
+                background-image: url('assets/hero-background-m.webp');
+            }
+        }
+
+        /* Ícones em SVG (sprite no início do <body>) */
+        .icone {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            vertical-align: -0.125em;
+            flex-shrink: 0;
+        }
+
         /* Carrossel — trilho horizontal com scroll-snap (1 foto no mobile, 2 a partir do tablet) */
         .carousel {
             position: relative;
@@ -563,7 +559,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-top: 1px solid #e8eaed;
             border-bottom: 1px solid #e8eaed;
             color: #202124;
-            font-family: Roboto, Arial, sans-serif;
+            font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         .g-reviews__layout {
             display: grid;
@@ -1464,6 +1460,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
     </style>
+    <!-- Utilitários Tailwind gerados por `npm run css` (depois do <style> acima, como o CDN fazia) -->
+    <link rel="stylesheet" href="/tailwind.css">
     <noscript>
         <style>
             /* Sem JS: mostra tudo diretamente */
@@ -1474,14 +1472,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "HomeGoodsStore",
       "@id": "https://natalispersianas.com.br/#negocio",
       "name": "N\u00e1talis Persianas",
-      "description": "Persianas e cortinas sob medida em Curitiba h\u00e1 28 anos. Medi\u00e7\u00e3o e instala\u00e7\u00e3o inclusas.",
+      "description": "Loja de persianas e cortinas sob medida em Curitiba h\u00e1 28 anos. Rol\u00f4, blackout, romana, double vision e wave. Medi\u00e7\u00e3o e instala\u00e7\u00e3o inclusas.",
       "url": "https://natalispersianas.com.br/",
       "image": "https://natalispersianas.com.br/og-image.jpg",
       "logo": "https://natalispersianas.com.br/assets/natalis-persianas-logo.webp",
-      "telephone": "+554132225333",
+      "telephone": "+5541999613079",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Pres. Get\u00falio Vargas, 1153, Loja 39",
@@ -1497,12 +1495,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "contactType": "customer service",
-          "telephone": "+554132225333",
-          "availableLanguage": "Portuguese"
-        },
-        {
-          "@type": "ContactPoint",
           "contactType": "sales",
           "telephone": "+5541999613079",
           "availableLanguage": "Portuguese"
@@ -1511,11 +1503,94 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
           "opens": "09:00",
           "closes": "17:30"
         }
-      ]
+      ],
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Curitiba",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cortinas e persianas sob medida",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Cortina wave"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Cortina franzida"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Cortina com voil"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Cortina em trilho curvo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana rol\u00f4"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana romana"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana double vision"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana horizontal de madeira"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana rol\u00f4 caixa box"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Persiana rol\u00f4 shangrila"
+            }
+          }
+        ]
+      }
     }
     </script>
 </head>
@@ -1525,14 +1600,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Sprite de ícones. Font Awesome Free 6.5.2 (ícones: CC BY 4.0, https://fontawesome.com/license/free) -->
+    <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-bars" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></symbol>
+        <symbol id="i-chevron-left" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></symbol>
+        <symbol id="i-chevron-right" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></symbol>
+        <symbol id="i-location-dot" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol>
+        <symbol id="i-ruler-combined" viewBox="0 0 512 512"><path d="M.2 468.9C2.7 493.1 23.1 512 48 512l96 0 320 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-48 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-64 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-64 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-64-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-64-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 368l0 96c0 1.7 .1 3.3 .2 4.9z"/></symbol>
+        <symbol id="i-star" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+        <symbol id="i-xmark" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></symbol>
+    </svg>
+
     <!-- Cabeçalho fixo (somente mobile): logo + menu com as seções -->
     <div id="menu-mobile">
         <div class="menu-mobile__barra">
             <a href="#inicio" class="menu-mobile__logo" aria-label="Nátalis Persianas, voltar ao início">
-                <img src="assets/natalis-persianas-logo.webp" alt="Nátalis Persianas" width="872" height="499">
+                <img src="assets/natalis-persianas-logo.webp" alt="Nátalis Persianas" width="480" height="275">
             </a>
             <button type="button" id="menu-mobile-botao" class="menu-mobile__botao" aria-expanded="false" aria-controls="menu-mobile-lista" aria-label="Abrir menu">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+                <svg class="icone" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-bars"/></svg>
             </button>
         </div>
         <nav id="menu-mobile-lista" class="menu-mobile__lista" aria-label="Navegação principal" hidden>
@@ -1551,7 +1639,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- 1. Dobra Principal (Hero) — slider de fundo automático -->
     <header id="inicio" class="hero-bg pt-16 sm:pt-20 pb-20 sm:pb-24 lg:pt-28 lg:pb-28 flex items-center">
-        <div class="hero-bg__slides" id="hero-slides" aria-hidden="true"></div>
+        <div class="hero-bg__slides" id="hero-slides" aria-hidden="true"><div class="hero-bg__slide hero-bg__slide--capa is-active is-flipped"></div></div>
         <div class="hero-deco hero-deco--tl" aria-hidden="true"></div>
         <div class="hero-deco hero-deco--br" aria-hidden="true"></div>
         <div class="hero-content section-container w-full">
@@ -1560,8 +1648,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     src="assets/natalis-persianas-logo.webp"
                     alt="Nátalis Persianas"
                     class="site-logo__img"
-                    width="872"
-                    height="499"
+                    width="480"
+                    height="275"
                     fetchpriority="high"
                 >
             </a>
@@ -1575,8 +1663,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </p>
             
             <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hero-cta btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-motion bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
-                    <i class="fab fa-whatsapp text-lg sm:text-xl shrink-0" aria-hidden="true"></i>
+                <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20gratuito%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="hero-cta btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-motion bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
+                    <svg class="icone text-lg sm:text-xl shrink-0" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                     <span>Solicitar Orçamento Gratuito</span>
                 </a>
                 <a href="#produtos" class="hero-cta hero-btn-produtos inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-blue transition-all duration-motion bg-white/90 border-2 border-brand-blue rounded-md hover:bg-brand-blue hover:text-white shadow-md hover:-translate-y-1">
@@ -1608,15 +1696,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 data-interval="5000"
             >
                 <div class="carousel__viewport" data-aos="fade-up">
-                    <div id="carousel-track" class="carousel__track"></div>
+                    <div id="carousel-track" class="carousel__track">
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="1 de 29"><img src="assets/cortina-wave-sala-jantar-luxo.webp" alt="Cortina wave em sala de jantar, Curitiba" class="is-flipped" width="1200" height="800" loading="eager" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="2 de 29"><img src="assets/cortina-dupla-voil-sala-jantar.webp" alt="Cortina dupla com voil em sala de jantar, Curitiba" class="is-flipped" width="1200" height="882" loading="eager" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="3 de 29"><img src="assets/cortina-wave-sala-tijolo.webp" alt="Cortina wave em sala com parede de tijolo, Curitiba" width="828" height="816" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="4 de 29"><img src="assets/cortina-wave-voil-sala.webp" alt="Cortina wave com voil em sala de estar, Curitiba" class="is-flipped" width="828" height="820" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="5 de 29"><img src="assets/cortina-wave-sala-tv.webp" alt="Cortina wave em sala de TV, Curitiba" class="is-flipped" width="1080" height="1026" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="6 de 29"><img src="assets/cortina-franzida-quarto.webp" alt="Cortina franzida em quarto, Curitiba" class="is-flipped" width="1200" height="1600" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="7 de 29"><img src="assets/persiana-zebra-consultorio.webp" alt="Persiana double vision em consultório, Curitiba" width="1200" height="785" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="8 de 29"><img src="assets/persiana-zebra-consultorio-2.webp" alt="Persiana double vision em consultório com mesa de atendimento, Curitiba" width="1200" height="725" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="9 de 29"><img src="assets/persiana-zebra-sala-sofa.webp" alt="Persiana double vision em sala de estar, Curitiba" class="is-flipped" width="1200" height="800" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="10 de 29"><img src="assets/persiana-zebra-quarto-madeira.webp" alt="Persiana double vision em quarto, Curitiba" width="1080" height="1350" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="11 de 29"><img src="assets/persiana-zebra-home-office.webp" alt="Persiana double vision em home office, Curitiba" class="is-flipped" width="564" height="846" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="12 de 29"><img src="assets/persiana-zebra-consultorio-amplo.webp" alt="Persiana double vision em consultório amplo, Curitiba" class="is-flipped" width="1080" height="728" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="13 de 29"><img src="assets/persiana-rolo-cozinha-marmore.webp" alt="Persiana rolô em cozinha com mármore, Curitiba" class="is-flipped" width="1200" height="800" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="14 de 29"><img src="assets/persiana-rolo-cozinha-cinza.webp" alt="Persiana rolô em cozinha cinza, Curitiba" width="960" height="1280" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="15 de 29"><img src="assets/persiana-rolo-banheiro.webp" alt="Persiana rolô em banheiro, Curitiba" class="is-flipped" width="1200" height="1800" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="16 de 29"><img src="assets/persiana-rolo-sala-iluminada.webp" alt="Persiana rolô em sala iluminada, Curitiba" class="is-flipped" width="1200" height="894" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="17 de 29"><img src="assets/persiana-rolo-screen-escritorio.webp" alt="Persiana rolô tela solar em escritório, Curitiba" width="1200" height="675" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="18 de 29"><img src="assets/persiana-rolo-blackout-lavanderia.webp" alt="Persiana rolô blackout em lavanderia, Curitiba" width="1200" height="900" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="19 de 29"><img src="assets/persiana-romana-varanda.webp" alt="Persiana romana em varanda, Curitiba" class="is-flipped" width="467" height="700" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="20 de 29"><img src="assets/persiana-painel-sala.webp" alt="Persiana painel em sala, Curitiba" class="is-flipped" width="828" height="817" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="21 de 29"><img src="assets/persiana-plissada-varanda.webp" alt="Persiana plissada em varanda, Curitiba" width="828" height="820" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="22 de 29"><img src="assets/persiana-vertical-sala.webp" alt="Persiana vertical em sala, Curitiba" class="is-flipped" width="1200" height="1177" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="23 de 29"><img src="assets/persiana-horizontal-madeira-classica.webp" alt="Persiana horizontal de madeira em sala clássica, Curitiba" width="1080" height="1080" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="24 de 29"><img src="assets/persiana-horizontal-madeira-escura.webp" alt="Persiana horizontal de madeira escura em sala de estar, Curitiba" class="is-flipped" width="1200" height="1191" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="25 de 29"><img src="assets/persiana-horizontal-madeira-banheiro.webp" alt="Persiana horizontal de madeira em banheiro, Curitiba" class="is-flipped" width="564" height="684" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="26 de 29"><img src="assets/persiana-horizontal-madeira-escritorio.webp" alt="Persiana horizontal de madeira em escritório, Curitiba" width="1920" height="1272" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="27 de 29"><img src="assets/persiana-horizontal-aluminio-escritorio.webp" alt="Persiana horizontal de alumínio em escritório, Curitiba" width="1200" height="898" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="28 de 29"><img src="assets/persiana-horizontal-aluminio-sala.webp" alt="Persiana horizontal de alumínio em sala, Curitiba" class="is-flipped" width="878" height="579" loading="lazy" decoding="async"></div>
+                        <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="29 de 29"><img src="assets/persiana-teto-pergola.webp" alt="Persiana de teto em pergolado, Curitiba" width="1200" height="1600" loading="lazy" decoding="async"></div>
+                    </div>
                     <div class="carousel__progress" aria-hidden="true">
                         <div class="carousel__progress-bar" id="carousel-progress-bar"></div>
                     </div>
                     <button type="button" class="carousel__btn carousel__btn--prev" id="carousel-prev" aria-label="Foto anterior">
-                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg>
                     </button>
                     <button type="button" class="carousel__btn carousel__btn--next" id="carousel-next" aria-label="Próxima foto">
-                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
                     </button>
                 </div>
                 <div class="carousel__footer">
@@ -1655,7 +1773,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="g-reviews__actions">
                         <a id="depoimentos-cta" href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Vi%20as%20avalia%C3%A7%C3%B5es%20da%20N%C3%A1talis%20Persianas%20no%20Google%20e%20gostaria%20de%20um%20atendimento%20exclusivo." target="_blank" rel="noopener noreferrer" class="g-reviews__btn g-reviews__btn--primary">
-                            <i class="fab fa-whatsapp text-base" aria-hidden="true"></i>
+                            <svg class="icone text-base" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                             Solicitar meu atendimento
                         </a>
                     </div>
@@ -1671,14 +1789,133 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     data-autoplay="true"
                     data-interval="7000"
                 >
-                    <div id="reviews-track" class="g-reviews__track"></div>
+                    <!-- Avaliações reais do perfil da Nátalis no Google (texto, data e foto conferidos em 01/10/2026) -->
+                    <div id="reviews-track" class="g-reviews__track">
+                    <article class="g-review" id="depoimento-1" aria-label="Avaliação de Augusto, 1 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-augusto.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Augusto</p>
+                                <p class="g-review__date">4 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Experiência excelente, desde o atendimento inicial até o dia da instalação. Foi minha primeira compra com a empresa, e estou convencido de que voltarei a contratá-los nas próximas ocasiões. Muito responsáveis com prazo e com a qualidade dos produtos. Recomendo.</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-2" aria-label="Avaliação de Renan Branco, 2 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-renan-branco.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Renan Branco</p>
+                                <p class="g-review__date">2 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Serviço de excelência: Desde o atendimento inicial na loja pela Natália, a busca pela cor ideal para a cortina até a instalação pelo Vicente. Cortina de alta qualidade e preço justo. Recomendo!!</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-3" aria-label="Avaliação de Thiago Kessler Chicora, 3 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-thiago-kessler-chicora.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Thiago Kessler Chicora</p>
+                                <p class="g-review__date">7 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Excelente atendimento e produto impecável! As persianas e cortinas sob medida ficaram perfeitas no ambiente, com ótimo acabamento e instalação cuidadosa. Profissionalismo, pontualidade e qualidade do início ao fim. Recomendo!</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-4" aria-label="Avaliação de Wagner Santoro, 4 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-wagner-santoro.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Wagner Santoro</p>
+                                <p class="g-review__date">3 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">A Natalis Persianas executou um excelente trabalho em meu apartamento, as cortinas são de excelente qualidade e ficaram perfeitamente instaladas, eles são muito profissionais e pontuais, Recomendo sem sombra de duvidas!!!!</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-5" aria-label="Avaliação de Sandro Aloizio, 5 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-sandro-aloizio.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Sandro Aloizio</p>
+                                <p class="g-review__date">5 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Atendimento perfeito, pessoal competente, boas sugestões para o orçamento também na hora da instalação muito capricho e recomendações de uso e instruções de forma bem detalhada, gostei</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-6" aria-label="Avaliação de Fernanda Cunha, 6 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-fernanda-cunha.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Fernanda Cunha</p>
+                                <p class="g-review__date">4 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Comprei uma cortina para minha sala na Nátalis Persianas e recomendo muito a loja. O atendimento dos funcionários na loja e no pós venda é excelente, a cortina que comprei muito bem feita, ficou muito bonita na minha sala. Além de toda a qualidade o preço é justo.</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-7" aria-label="Avaliação de Ana Paula Matias, 7 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-ana-paula-matias.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Ana Paula Matias</p>
+                                <p class="g-review__date">8 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Atendimento excelente desde o WhatsApp até a visita para tirar as medidas, realizada pela vendedora Natália, sempre muito atenciosa. O montador também foi rápido e extremamente eficiente. Indico 100% a Natalis Persianas!</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-8" aria-label="Avaliação de Kendra Stella, 8 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-kendra-stella.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Kendra Stella</p>
+                                <p class="g-review__date">8 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Atendimento impecável, atencioso e muito profissional. Excelente qualidade nos tecidos, acabamentos e instalação. Os ambientes ficam lindos. Já e minha segunda aquisição e continuarei comprando. Recomendo.</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    <article class="g-review" id="depoimento-9" aria-label="Avaliação de Siddharta Gabriella Oliveira, 9 de 9">
+                        <div class="g-review__header">
+                            <img class="g-review__avatar" src="assets/avaliacao-siddharta-gabriella-oliveira.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                            <div class="g-review__who">
+                                <p class="g-review__name">Siddharta Gabriella Oliveira</p>
+                                <p class="g-review__date">5 meses atrás</p>
+                            </div>
+                            <svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>
+                        </div>
+                        <div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="g-review__text">Ótimo atendimento, produto de qualidade, prestação de serviço e instalação incríveis. Recomendo muito e voltarei para encomendar mais 😊</p>
+                        <button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>
+                    </article>
+                    </div>
                     <div class="g-reviews__footer">
                         <button type="button" class="g-reviews__nav" id="reviews-prev" aria-label="Avaliações anteriores">
-                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg>
                         </button>
                         <div class="g-reviews__dots" id="reviews-dots"></div>
                         <button type="button" class="g-reviews__nav" id="reviews-next" aria-label="Próximas avaliações">
-                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
                         </button>
                     </div>
                 </div>
@@ -1707,8 +1944,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl">Cortinas wave, franzida e com voil, em tecido blackout, linho e translúcido. Escolhemos com você tecido, trama e cor para sala, quarto e escritório, com caimento perfeito e instalação inclusa.</p>
                         </div>
                         <div class="shrink-0">
-                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+cortinas+sob+medida+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
-                                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                            <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cortinas%20sob%20medida%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
+                                <svg class="icone text-lg" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                                 Entre em contato
                             </a>
                         </div>
@@ -1717,42 +1954,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div id="cortinas-galeria" class="produtos-galeria" aria-label="Galeria de modelos de cortinas">
                     <figure class="produto-card">
-                        <img src="assets/cortina-wave-sala-jantar-luxo.webp" alt="Cortina wave sob medida em sala de jantar, Curitiba" loading="lazy">
+                        <img src="assets/cortina-wave-sala-jantar-luxo.webp" alt="Cortina wave sob medida em sala de jantar, Curitiba" loading="lazy" width="1200" height="800">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina Wave para Sala de Jantar</p>
                             <p class="produto-card__desc">Movimento suave com caimento contínuo. Ideal para salas e ambientes modernos.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/cortina-franzida-quarto.webp" alt="Cortina franzida sob medida em quarto, Curitiba" loading="lazy">
+                        <img src="assets/cortina-franzida-quarto.webp" alt="Cortina franzida sob medida em quarto, Curitiba" loading="lazy" width="1200" height="1600">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina Franzida para Quarto</p>
                             <p class="produto-card__desc">Elegância clássica com volume e riqueza nos detalhes do tecido.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/cortina-wave-sala-tv.webp" alt="Cortina wave sob medida em sala de TV, Curitiba" loading="lazy">
+                        <img src="assets/cortina-wave-sala-tv.webp" alt="Cortina wave sob medida em sala de TV, Curitiba" loading="lazy" width="1080" height="1026">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina Wave para Sala de TV</p>
                             <p class="produto-card__desc">Filtro de luz suave que valoriza o ambiente com sofisticação e calor.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/cortina-wave-sala-tijolo.webp" alt="Cortina wave em linho em sala com parede de tijolo, Curitiba" loading="lazy">
+                        <img src="assets/cortina-wave-sala-tijolo.webp" alt="Cortina wave em linho em sala com parede de tijolo, Curitiba" loading="lazy" width="828" height="816">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina Wave em Linho</p>
                             <p class="produto-card__desc">Tecido em linho com caimento contínuo para salas e ambientes formais.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/cortina-wave-voil-sala.webp" alt="Cortina wave com voil translúcido em sala de estar, Curitiba" loading="lazy">
+                        <img src="assets/cortina-wave-voil-sala.webp" alt="Cortina wave com voil translúcido em sala de estar, Curitiba" loading="lazy" width="828" height="820">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina Wave com Voil</p>
                             <p class="produto-card__desc">Leveza e elegância com tecido translúcido que filtra a luz com delicadeza.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/cortina-trilho-curvo.webp" alt="Cortina em trilho curvo no teto em ambiente moderno, Curitiba" loading="lazy">
+                        <img src="assets/cortina-trilho-curvo.webp" alt="Cortina em trilho curvo no teto em ambiente moderno, Curitiba" loading="lazy" width="735" height="1024">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Cortina em Trilho Curvo</p>
                             <p class="produto-card__desc">Trilho curvo no teto para vãos especiais. Caimento fluido que valoriza arquitetura e design.</p>
@@ -1773,8 +2010,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl">Persianas rolô, blackout, romana, double vision, horizontal de madeira e caixa box para quarto, sala, cozinha e escritório. Controle de luz e privacidade com medição e instalação inclusas.</p>
                         </div>
                         <div class="shrink-0">
-                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+persianas+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
-                                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                            <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Tenho%20interesse%20em%20persianas%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
+                                <svg class="icone text-lg" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                                 Entre em contato
                             </a>
                         </div>
@@ -1783,42 +2020,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div id="persianas-galeria" class="produtos-galeria" aria-label="Galeria de modelos de persianas">
                     <figure class="produto-card">
-                        <img src="assets/persiana-rolo-cozinha-marmore.webp" alt="Persiana rolô filtra sol em cozinha com mármore, Curitiba" loading="lazy">
+                        <img src="assets/persiana-rolo-cozinha-marmore.webp" alt="Persiana rolô filtra sol em cozinha com mármore, Curitiba" loading="lazy" width="1200" height="800">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Persiana Rolô Filtra Sol para Cozinha</p>
                             <p class="produto-card__desc">Design limpo e funcional. Combina com qualquer estilo de decoração.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/persiana-horizontal-madeira-escura.webp" alt="Persiana horizontal de madeira escura sob medida, Curitiba" loading="lazy">
+                        <img src="assets/persiana-horizontal-madeira-escura.webp" alt="Persiana horizontal de madeira escura sob medida, Curitiba" loading="lazy" width="1200" height="1191">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Persiana Horizontal de Madeira</p>
                             <p class="produto-card__desc">Aconchego natural com lâminas de madeira e controle preciso da luz.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/persiana-romana-sala.webp" alt="Persiana romana sob medida em sala de jantar, Curitiba" loading="lazy">
+                        <img src="assets/persiana-romana-sala.webp" alt="Persiana romana sob medida em sala de jantar, Curitiba" loading="lazy" width="768" height="1024">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Persiana Romana para Sala</p>
                             <p class="produto-card__desc">Estética elegante em tecido dobrado. Sofisticada para escritórios e salas.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/persiana-zebra-quarto-madeira.webp" alt="Persiana double vision sob medida em quarto, Curitiba" loading="lazy">
+                        <img src="assets/persiana-zebra-quarto-madeira.webp" alt="Persiana double vision sob medida em quarto, Curitiba" loading="lazy" width="1080" height="1350">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Persiana Double Vision para Quarto</p>
                             <p class="produto-card__desc">Faixas intercaladas que permitem controle preciso de luz e privacidade.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/persiana-rolo-shangrila.webp" alt="Persiana rolô shangrila em tecido translúcido, Curitiba" loading="lazy">
+                        <img src="assets/persiana-rolo-shangrila.webp" alt="Persiana rolô shangrila em tecido translúcido, Curitiba" loading="lazy" width="300" height="300">
                         <div class="produto-card__overlay">
                             <p class="produto-card__titulo">Persiana Rolô Shangrila</p>
                             <p class="produto-card__desc">Durabilidade e versatilidade para ambientes comerciais e residenciais.</p>
                         </div>
                     </figure>
                     <figure class="produto-card">
-                        <img src="assets/persiana-rolo-caixa-box.webp" alt="Persiana rolô caixa box com trilhos laterais, Curitiba" loading="lazy">
+                        <img src="assets/persiana-rolo-caixa-box.webp" alt="Persiana rolô caixa box com trilhos laterais, Curitiba" loading="lazy" width="1024" height="576">
                         <div class="produto-card__overlay">
                             <!-- PENDENTE: se a cliente confirmar que é blackout, trocar título para "Persiana Caixa Box Blackout" -->
                             <p class="produto-card__titulo">Persiana Rolô Caixa Box</p>
@@ -1830,8 +2067,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <div id="produtos-cta" class="text-center mt-12 sm:mt-20 px-2">
                 <p class="text-brand-blue font-normal text-lg sm:text-xl mb-5 sm:mb-6">Tecidos blackout, translúcidos e em linho, escolhidos para cada projeto</p>
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
-                    <i class="fab fa-whatsapp text-lg text-[#25D366]" aria-hidden="true"></i>
+                <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20atendimento%20exclusivo%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
+                    <svg class="icone text-lg text-[#25D366]" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                     Solicitar meu atendimento exclusivo
                 </a>
             </div>
@@ -1843,7 +2080,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="section-container">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="assets/loja-fisica.webp" alt="Showroom da Nátalis Persianas no Rebouças, Curitiba" class="rounded-2xl shadow-2xl w-full h-auto object-cover object-center aspect-[4/3]">
+                    <img src="assets/loja-fisica.webp" alt="Showroom da Nátalis Persianas no Rebouças, Curitiba" class="rounded-2xl shadow-2xl w-full h-auto object-cover object-center aspect-[4/3]" width="1200" height="799">
                 </div>
                 <div data-aos="fade-left">
                     <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Nossa História</p>
@@ -1856,8 +2093,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         Em nossa loja física, você encontra um atendimento personalizado, focado em entender suas necessidades e entregar projetos que unem elegância, conforto e um acabamento impecável. Venha conhecer nosso showroom e descubra a solução ideal para o seu ambiente. Nosso showroom fica no Rebouças.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+loja+f%C3%ADsica.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg hover:-translate-y-1">
-                            <i class="fab fa-whatsapp text-lg shrink-0" aria-hidden="true"></i>
+                        <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20loja%20f%C3%ADsica." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg hover:-translate-y-1">
+                            <svg class="icone text-lg shrink-0" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                             Falar com um Consultor
                         </a>
                         <a href="#mapa" class="inline-flex w-full sm:w-auto items-center justify-center bg-white border border-gray-200 text-brand-blue px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-gray-50 transition uppercase tracking-wider shadow-sm">
@@ -1892,7 +2129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
                         <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois da varanda gourmet">
                         <div class="ba-compare__handle" aria-hidden="true">
-                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg><svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
                         </div>
                     </div>
                     <figcaption class="mt-4 text-center">
@@ -1912,7 +2149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
                         <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois do quarto">
                         <div class="ba-compare__handle" aria-hidden="true">
-                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg><svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
                         </div>
                     </div>
                     <figcaption class="mt-4 text-center">
@@ -1932,7 +2169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="ba-compare__badge ba-compare__badge--depois">Depois</span>
                         <input type="range" class="ba-compare__range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois da sala com pé-direito duplo">
                         <div class="ba-compare__handle" aria-hidden="true">
-                            <i class="fas fa-chevron-left" aria-hidden="true"></i><i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg><svg class="icone" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
                         </div>
                     </div>
                     <figcaption class="mt-4 text-center">
@@ -1946,7 +2183,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="antes-depois-cta" class="text-center mt-10 sm:mt-14 px-2" data-aos="fade-up">
                 <p class="text-brand-blue font-normal text-lg sm:text-xl mb-5 sm:mb-6">Quer ver essa transformação no seu ambiente?</p>
                 <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Vi%20os%20antes%20e%20depois%20no%20site%20da%20N%C3%A1talis%20Persianas%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20ambiente." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg">
-                    <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                    <svg class="icone text-lg" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                     Solicitar orçamento gratuito
                 </a>
             </div>
@@ -1967,7 +2204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <!-- Círculo principal -->
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-clock text-3xl sm:text-4xl" aria-hidden="true"></i>
+                            <svg class="icone text-3xl sm:text-4xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
                         </div>
                     </div>
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">28 Anos</h3>
@@ -1982,7 +2219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-star text-3xl sm:text-4xl" aria-hidden="true"></i>
+                            <svg class="icone text-3xl sm:text-4xl" style="width:1.125em" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
                         </div>
                     </div>
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Nota 4,9</h3>
@@ -1996,7 +2233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-ruler-combined text-3xl sm:text-4xl" aria-hidden="true"></i>
+                            <svg class="icone text-3xl sm:text-4xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-ruler-combined"/></svg>
                         </div>
                     </div>
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
@@ -2033,23 +2270,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!-- Col 1: Marca + info -->
             <div id="quem-somos" data-aos="fade-up">
-                <img src="assets/natalis-persianas-logo-branca.webp" alt="Nátalis Persianas" class="h-16 sm:h-20 w-auto mb-5" width="872" height="496" loading="lazy">
+                <img src="assets/natalis-persianas-logo-branca.webp" alt="Nátalis Persianas" class="h-16 sm:h-20 w-auto mb-5" width="480" height="273" loading="lazy">
                 <p class="text-sm font-normal leading-relaxed text-white/70 mb-6 max-w-xs">
                     Há mais de 28 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
                 </p>
                 <div class="space-y-3 text-sm font-normal text-white/70">
                     <p class="flex items-center gap-2">
-                        <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+                        <svg class="icone" style="width:1.25em" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
                         Seg a Sex, 09:00 às 17:30
                     </p>
                     <p>
                         <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Encontrei%20o%20contato%20de%20voc%C3%AAs%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors" aria-label="Chamar a Nátalis Persianas no WhatsApp, (41) 99961-3079">
-                            <i class="fab fa-whatsapp fa-fw text-base" aria-hidden="true"></i>
+                            <svg class="icone text-base" style="width:1.25em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                             (41) 99961-3079
                         </a>
                     </p>
                     <p class="flex items-start gap-2">
-                        <i class="fas fa-location-dot fa-fw mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <svg class="icone mt-0.5 shrink-0" style="width:1.25em" aria-hidden="true" focusable="false"><use href="#i-location-dot"/></svg>
                         <span>Av. Pres. Getúlio Vargas, 1153, Loja 39<br>Rebouças, Curitiba, PR, 80250-180</span>
                     </p>
                 </div>
@@ -2059,12 +2296,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav aria-label="Navegação do rodapé" data-aos="fade-up" data-aos-delay="100">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-5">Navegação</h4>
                 <ul class="space-y-3">
-                    <li><a href="#inicio"      class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Início</a></li>
-                    <li><a href="#galeria"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Galeria de Projetos</a></li>
-                    <li><a href="#cortinas"    class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Cortinas</a></li>
-                    <li><a href="#persianas"   class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Persianas</a></li>
-                    <li><a href="#depoimentos" class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Avaliações</a></li>
-                    <li><a href="#contato"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-white/40"></i>Contato</a></li>
+                    <li><a href="#inicio"      class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Início</a></li>
+                    <li><a href="#galeria"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Galeria de Projetos</a></li>
+                    <li><a href="#cortinas"    class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Cortinas</a></li>
+                    <li><a href="#persianas"   class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Persianas</a></li>
+                    <li><a href="#depoimentos" class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Avaliações</a></li>
+                    <li><a href="#contato"     class="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2"><svg class="icone text-xs text-white/40" style="width:0.625em" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>Contato</a></li>
                 </ul>
             </nav>
 
@@ -2072,8 +2309,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="sm:col-span-2 lg:col-span-1">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-5">Fale Conosco</h4>
                 <p class="text-sm text-white/70 font-normal mb-5 leading-relaxed">Solicite um orçamento gratuito. Atendemos em Curitiba e região com medição e instalação inclusa.</p>
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-2.5 rounded-md hover:bg-[#1ebd5a] transition">
-                    <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Eu%20gostaria%20de%20um%20or%C3%A7amento%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-2.5 rounded-md hover:bg-[#1ebd5a] transition">
+                    <svg class="icone text-lg" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                     Chamar no WhatsApp
                 </a>
             </div>
@@ -2088,7 +2325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Popup de produto: preenchido via JS ao clicar em um card de Cortinas ou Persianas -->
     <dialog id="produto-modal" class="produto-modal" aria-labelledby="produto-modal-titulo">
         <button type="button" class="produto-modal__fechar" id="produto-modal-fechar" aria-label="Fechar">
-            <i class="fas fa-xmark" aria-hidden="true"></i>
+            <svg class="icone" style="width:0.75em" aria-hidden="true" focusable="false"><use href="#i-xmark"/></svg>
         </button>
         <div class="produto-modal__foto">
             <img id="produto-modal-img" src="" alt="">
@@ -2097,15 +2334,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 id="produto-modal-titulo" class="font-display text-2xl font-bold text-brand-blue mb-2"></h3>
             <p id="produto-modal-desc" class="text-gray-600 text-sm sm:text-base leading-relaxed mb-5"></p>
             <a id="produto-modal-cta" href="#" target="_blank" rel="noopener noreferrer" class="btn-shine flex w-full items-center justify-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-3 rounded-md hover:bg-[#1ebd5a] transition uppercase tracking-wider">
-                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                <svg class="icone text-lg" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
                 Pedir orçamento deste modelo
             </a>
         </div>
     </dialog>
 
     <!-- BOTÃO WHATSAPP (flutuante redondo, em todas as larguras) -->
-    <a id="whatsapp-flutuante" href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="flex fixed bottom-4 md:bottom-6 lg:bottom-8 right-4 md:right-6 lg:right-8 bg-[#25D366] text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] justify-center items-center hover:bg-[#1ebd5a] transition-transform transform hover:scale-110 z-50" aria-label="Falar no WhatsApp">
-        <i class="fab fa-whatsapp text-3xl" aria-hidden="true"></i>
+    <a id="whatsapp-flutuante" href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Eu%20gostaria%20de%20um%20or%C3%A7amento%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="flex fixed bottom-4 md:bottom-6 lg:bottom-8 right-4 md:right-6 lg:right-8 bg-[#25D366] text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] justify-center items-center hover:bg-[#1ebd5a] transition-transform transform hover:scale-110 z-50" aria-label="Falar no WhatsApp">
+        <svg class="icone text-3xl" style="width:0.875em" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
     </a>
 
     <script>
@@ -2137,9 +2374,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var FLIPPED_ASSETS = window.FLIPPED_ASSETS;
 
         /* Apenas imagens ≥1500px de largura para qualidade no hero full-screen */
+        /* O primeiro slide (capa) já está no HTML/CSS; aqui entram só os seguintes */
         var HERO_SLIDES = [
-            { src: 'assets/hero-background.webp', position: 'center center', flip: true },
-            { src: 'assets/persiana-horizontal-madeira-escritorio.webp', position: 'center center' },
+            { src: 'assets/persiana-horizontal-madeira-escritorio.webp', mobile: 'assets/persiana-horizontal-madeira-escritorio-m.webp', position: 'center center' },
             { src: 'assets/cortina-wave-sala-jantar-luxo.webp', position: 'center center', flip: true }
         ];
         var heroRoot = document.getElementById('hero-slides');
@@ -2148,16 +2385,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var heroTimer = null;
             var heroInterval = 6000;
             var heroReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var heroEls = [];
+            var heroSmall = window.matchMedia('(max-width: 767px)').matches;
+            var heroEls = Array.prototype.slice.call(heroRoot.querySelectorAll('.hero-bg__slide'));
 
-            HERO_SLIDES.forEach(function (slide, i) {
+            HERO_SLIDES.forEach(function (slide) {
                 var el = document.createElement('div');
-                el.className = 'hero-bg__slide' + (i === 0 ? ' is-active' : '') + (slide.flip ? ' is-flipped' : '');
-                el.style.backgroundImage = 'url("' + slide.src + '")';
+                el.className = 'hero-bg__slide' + (slide.flip ? ' is-flipped' : '');
+                el.setAttribute('data-bg', heroSmall && slide.mobile ? slide.mobile : slide.src);
                 if (slide.position) el.style.backgroundPosition = slide.position;
                 heroRoot.appendChild(el);
                 heroEls.push(el);
             });
+
+            /* As fotos dos slides seguintes só baixam depois que a página terminou de carregar */
+            function heroLoadRest() {
+                heroEls.forEach(function (el) {
+                    var bg = el.getAttribute('data-bg');
+                    if (!bg) return;
+                    el.style.backgroundImage = 'url("' + bg + '")';
+                    el.removeAttribute('data-bg');
+                });
+            }
+            if (document.readyState === 'complete') heroLoadRest();
+            else window.addEventListener('load', heroLoadRest);
 
             function heroGoTo(index) {
                 heroIndex = ((index % heroEls.length) + heroEls.length) % heroEls.length;
@@ -2194,71 +2444,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* FLIPPED_ASSETS definido no script do hero — reutilizado na galeria e cards */
     var FLIPPED_ASSETS = window.FLIPPED_ASSETS || {};
     (function () {
-        var ASSET_FILES = [
-            'cortina-wave-sala-jantar-luxo.webp',
-            'cortina-dupla-voil-sala-jantar.webp',
-            'cortina-wave-sala-tijolo.webp',
-            'cortina-wave-voil-sala.webp',
-            'cortina-wave-sala-tv.webp',
-            'cortina-franzida-quarto.webp',
-            'persiana-zebra-consultorio.webp',
-            'persiana-zebra-consultorio-2.webp',
-            'persiana-zebra-sala-sofa.webp',
-            'persiana-zebra-quarto-madeira.webp',
-            'persiana-zebra-home-office.webp',
-            'persiana-zebra-consultorio-amplo.webp',
-            'persiana-rolo-cozinha-marmore.webp',
-            'persiana-rolo-cozinha-cinza.webp',
-            'persiana-rolo-banheiro.webp',
-            'persiana-rolo-sala-iluminada.webp',
-            'persiana-rolo-screen-escritorio.webp',
-            'persiana-rolo-blackout-lavanderia.webp',
-            'persiana-romana-varanda.webp',
-            'persiana-painel-sala.webp',
-            'persiana-plissada-varanda.webp',
-            'persiana-vertical-sala.webp',
-            'persiana-horizontal-madeira-classica.webp',
-            'persiana-horizontal-madeira-escura.webp',
-            'persiana-horizontal-madeira-banheiro.webp',
-            'persiana-horizontal-madeira-escritorio.webp',
-            'persiana-horizontal-aluminio-escritorio.webp',
-            'persiana-horizontal-aluminio-sala.webp',
-            'persiana-teto-pergola.webp'
-        ];
-
-        /* Texto alternativo de cada foto da galeria (modelo, ambiente e cidade) */
-        var ASSET_ALTS = {
-            'cortina-wave-sala-jantar-luxo.webp': 'Cortina wave em sala de jantar, Curitiba',
-            'cortina-dupla-voil-sala-jantar.webp': 'Cortina dupla com voil em sala de jantar, Curitiba',
-            'cortina-wave-sala-tijolo.webp': 'Cortina wave em sala com parede de tijolo, Curitiba',
-            'cortina-wave-voil-sala.webp': 'Cortina wave com voil em sala de estar, Curitiba',
-            'cortina-wave-sala-tv.webp': 'Cortina wave em sala de TV, Curitiba',
-            'cortina-franzida-quarto.webp': 'Cortina franzida em quarto, Curitiba',
-            'persiana-zebra-consultorio.webp': 'Persiana double vision em consultório, Curitiba',
-            'persiana-zebra-consultorio-2.webp': 'Persiana double vision em consultório com mesa de atendimento, Curitiba',
-            'persiana-zebra-sala-sofa.webp': 'Persiana double vision em sala de estar, Curitiba',
-            'persiana-zebra-quarto-madeira.webp': 'Persiana double vision em quarto, Curitiba',
-            'persiana-zebra-home-office.webp': 'Persiana double vision em home office, Curitiba',
-            'persiana-zebra-consultorio-amplo.webp': 'Persiana double vision em consultório amplo, Curitiba',
-            'persiana-rolo-cozinha-marmore.webp': 'Persiana rolô em cozinha com mármore, Curitiba',
-            'persiana-rolo-cozinha-cinza.webp': 'Persiana rolô em cozinha cinza, Curitiba',
-            'persiana-rolo-banheiro.webp': 'Persiana rolô em banheiro, Curitiba',
-            'persiana-rolo-sala-iluminada.webp': 'Persiana rolô em sala iluminada, Curitiba',
-            'persiana-rolo-screen-escritorio.webp': 'Persiana rolô tela solar em escritório, Curitiba',
-            'persiana-rolo-blackout-lavanderia.webp': 'Persiana rolô blackout em lavanderia, Curitiba',
-            'persiana-romana-varanda.webp': 'Persiana romana em varanda, Curitiba',
-            'persiana-painel-sala.webp': 'Persiana painel em sala, Curitiba',
-            'persiana-plissada-varanda.webp': 'Persiana plissada em varanda, Curitiba',
-            'persiana-vertical-sala.webp': 'Persiana vertical em sala, Curitiba',
-            'persiana-horizontal-madeira-classica.webp': 'Persiana horizontal de madeira em sala clássica, Curitiba',
-            'persiana-horizontal-madeira-escura.webp': 'Persiana horizontal de madeira escura em sala de estar, Curitiba',
-            'persiana-horizontal-madeira-banheiro.webp': 'Persiana horizontal de madeira em banheiro, Curitiba',
-            'persiana-horizontal-madeira-escritorio.webp': 'Persiana horizontal de madeira em escritório, Curitiba',
-            'persiana-horizontal-aluminio-escritorio.webp': 'Persiana horizontal de alumínio em escritório, Curitiba',
-            'persiana-horizontal-aluminio-sala.webp': 'Persiana horizontal de alumínio em sala, Curitiba',
-            'persiana-teto-pergola.webp': 'Persiana de teto em pergolado, Curitiba'
-        };
-
         var root = document.getElementById('galeria-carrossel');
         var track = document.getElementById('carousel-track');
         var counterEl = document.getElementById('carousel-counter');
@@ -2266,22 +2451,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var btnPrev = document.getElementById('carousel-prev');
         var btnNext = document.getElementById('carousel-next');
 
-        if (!root || !track || !ASSET_FILES.length) return;
+        if (!root || !track) return;
 
         var intervalMs = parseInt(root.getAttribute('data-interval'), 10) || 5000;
         var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var autoplay = root.getAttribute('data-autoplay') === 'true' && !prefersReducedMotion;
         var twoUp = window.matchMedia('(min-width: 768px)');
         var current = 0;
-        var slides = [];
+        /* Os slides já vêm prontos no HTML, visíveis para buscadores e leitores sem JavaScript */
+        var slides = Array.prototype.slice.call(track.querySelectorAll('.carousel__slide'));
+        if (!slides.length) return;
         var timer = null;
         var scrollTimer = null;
 
         root.style.setProperty('--carousel-interval', intervalMs + 'ms');
-
-        function assetUrl(filename) {
-            return 'assets/' + encodeURIComponent(filename);
-        }
 
         /* Fotos visíveis por vez: 2 a partir do tablet, 1 no mobile (espelha o CSS) */
         function perView() {
@@ -2292,31 +2475,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             return Math.max(0, slides.length - perView());
         }
 
-        function buildSlides() {
-            ASSET_FILES.forEach(function (file, i) {
-                var slide = document.createElement('div');
-                slide.className = 'carousel__slide';
-                slide.setAttribute('role', 'group');
-                slide.setAttribute('aria-roledescription', 'slide');
-                slide.setAttribute('aria-label', (i + 1) + ' de ' + ASSET_FILES.length);
-
-                var img = document.createElement('img');
-                img.src = assetUrl(file);
-                img.alt = ASSET_ALTS[file] || 'Projeto de cortina e persiana sob medida, Nátalis Persianas Curitiba';
-                img.loading = i < 2 ? 'eager' : 'lazy';
-                img.decoding = 'async';
-                if (FLIPPED_ASSETS[file]) img.classList.add('is-flipped');
-
-                slide.appendChild(img);
-                track.appendChild(slide);
-                slides.push(slide);
-            });
-        }
-
         /* Adianta o download das fotos da página atual e da seguinte, para a troca nunca mostrar slide vazio */
         function warm(index) {
             for (var i = index; i < index + perView() * 2; i++) {
-                var img = slides[i % slides.length].firstChild;
+                var img = slides[i % slides.length].querySelector('img');
                 if (img.loading !== 'eager') img.loading = 'eager';
             }
         }
@@ -2369,7 +2531,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             root.classList.add('is-paused');
         }
 
-        buildSlides();
         warm(0);
         updateCounter();
 
@@ -2419,19 +2580,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
     (function () {
-        /* Avaliações reais do perfil da Nátalis no Google (texto, data e foto conferidos em 01/10/2026) */
-        var REVIEWS = [
-            { id: 'depoimento-1', avatar: 'avaliacao-augusto.webp', name: 'Augusto', date: '4 meses atrás', text: 'Experiência excelente, desde o atendimento inicial até o dia da instalação. Foi minha primeira compra com a empresa, e estou convencido de que voltarei a contratá-los nas próximas ocasiões. Muito responsáveis com prazo e com a qualidade dos produtos. Recomendo.' },
-            { id: 'depoimento-2', avatar: 'avaliacao-renan-branco.webp', name: 'Renan Branco', date: '2 meses atrás', text: 'Serviço de excelência: Desde o atendimento inicial na loja pela Natália, a busca pela cor ideal para a cortina até a instalação pelo Vicente. Cortina de alta qualidade e preço justo. Recomendo!!' },
-            { id: 'depoimento-3', avatar: 'avaliacao-thiago-kessler-chicora.webp', name: 'Thiago Kessler Chicora', date: '7 meses atrás', text: 'Excelente atendimento e produto impecável! As persianas e cortinas sob medida ficaram perfeitas no ambiente, com ótimo acabamento e instalação cuidadosa. Profissionalismo, pontualidade e qualidade do início ao fim. Recomendo!' },
-            { id: 'depoimento-4', avatar: 'avaliacao-wagner-santoro.webp', name: 'Wagner Santoro', date: '3 meses atrás', text: 'A Natalis Persianas executou um excelente trabalho em meu apartamento, as cortinas são de excelente qualidade e ficaram perfeitamente instaladas, eles são muito profissionais e pontuais, Recomendo sem sombra de duvidas!!!!' },
-            { id: 'depoimento-5', avatar: 'avaliacao-sandro-aloizio.webp', name: 'Sandro Aloizio', date: '5 meses atrás', text: 'Atendimento perfeito, pessoal competente, boas sugestões para o orçamento também na hora da instalação muito capricho e recomendações de uso e instruções de forma bem detalhada, gostei' },
-            { id: 'depoimento-6', avatar: 'avaliacao-fernanda-cunha.webp', name: 'Fernanda Cunha', date: '4 meses atrás', text: 'Comprei uma cortina para minha sala na Nátalis Persianas e recomendo muito a loja. O atendimento dos funcionários na loja e no pós venda é excelente, a cortina que comprei muito bem feita, ficou muito bonita na minha sala. Além de toda a qualidade o preço é justo.' },
-            { id: 'depoimento-7', avatar: 'avaliacao-ana-paula-matias.webp', name: 'Ana Paula Matias', date: '8 meses atrás', text: 'Atendimento excelente desde o WhatsApp até a visita para tirar as medidas, realizada pela vendedora Natália, sempre muito atenciosa. O montador também foi rápido e extremamente eficiente. Indico 100% a Natalis Persianas!' },
-            { id: 'depoimento-8', avatar: 'avaliacao-kendra-stella.webp', name: 'Kendra Stella', date: '8 meses atrás', text: 'Atendimento impecável, atencioso e muito profissional. Excelente qualidade nos tecidos, acabamentos e instalação. Os ambientes ficam lindos. Já e minha segunda aquisição e continuarei comprando. Recomendo.' },
-            { id: 'depoimento-9', avatar: 'avaliacao-siddharta-gabriella-oliveira.webp', name: 'Siddharta Gabriella Oliveira', date: '5 meses atrás', text: 'Ótimo atendimento, produto de qualidade, prestação de serviço e instalação incríveis. Recomendo muito e voltarei para encomendar mais 😊' }
-        ];
-
         var root = document.getElementById('reviews-carousel');
         var track = document.getElementById('reviews-track');
         var dotsWrap = document.getElementById('reviews-dots');
@@ -2448,43 +2596,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var autoplay = root.getAttribute('data-autoplay') === 'true' && !reducedMotion;
 
-        function escapeHtml(str) {
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
-        }
-
-        function buildCards() {
-            track.innerHTML = '';
-            REVIEWS.forEach(function (review, i) {
-                var card = document.createElement('article');
-                card.className = 'g-review';
-                card.id = review.id;
-                card.setAttribute('aria-label', 'Avaliação de ' + review.name + ', ' + (i + 1) + ' de ' + REVIEWS.length);
-                card.innerHTML =
-                    '<div class="g-review__header">' +
-                        '<img class="g-review__avatar" src="assets/' + encodeURIComponent(review.avatar) + '" alt="" width="40" height="40" loading="lazy" decoding="async">' +
-                        '<div class="g-review__who">' +
-                            '<p class="g-review__name">' + escapeHtml(review.name) + '</p>' +
-                            '<p class="g-review__date">' + escapeHtml(review.date) + '</p>' +
-                        '</div>' +
-                        '<svg class="g-review__g" role="img" aria-label="Avaliação publicada no Google"><use href="#icone-google"/></svg>' +
-                    '</div>' +
-                    '<div class="g-review__stars" role="img" aria-label="5 de 5 estrelas">★★★★★</div>' +
-                    '<p class="g-review__text">' + escapeHtml(review.text) + '</p>' +
-                    '<button type="button" class="g-review__more" aria-expanded="false" hidden>Mais</button>';
-
+        /* Os cards já vêm prontos no HTML; aqui só ligamos o botão "Mais" */
+        function bindCards() {
+            cards = Array.prototype.slice.call(track.querySelectorAll('.g-review'));
+            cards.forEach(function (card) {
                 var more = card.querySelector('.g-review__more');
                 more.addEventListener('click', function () {
                     var open = card.classList.toggle('is-expanded');
                     more.textContent = open ? 'Menos' : 'Mais';
                     more.setAttribute('aria-expanded', open ? 'true' : 'false');
                 });
-
-                track.appendChild(card);
-                cards.push(card);
             });
         }
 
@@ -2558,7 +2679,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-        buildCards();
+        bindCards();
         buildDots();
         updateClamps();
 
@@ -2665,12 +2786,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var botao = document.getElementById('menu-mobile-botao');
         var lista = document.getElementById('menu-mobile-lista');
         if (botao && lista) {
-            var icone = botao.querySelector('i');
+            var icone = botao.querySelector('use');
             var definir = function (aberto) {
                 lista.hidden = !aberto;
                 botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
                 botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-                icone.className = aberto ? 'fas fa-xmark' : 'fas fa-bars';
+                icone.setAttribute('href', aberto ? '#i-xmark' : '#i-bars');
             };
             botao.addEventListener('click', function () { definir(lista.hidden); });
             lista.addEventListener('click', function (e) {
