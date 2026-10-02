@@ -222,12 +222,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         #autoridade {
             position: relative;
             z-index: 10;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
             overflow: visible;
         }
         @media (min-width: 640px) {
-            #autoridade { background-color: #edf3f7; }
+            #autoridade { background-color: #f2f6f9; }
         }
         .autoridade-cards-wrap {
             position: relative;
@@ -1118,19 +1118,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         #produtos,
         #institucional,
         #autoridade {
-            background-color: #edf3f7;
+            background-color: #f2f6f9;
             background-image:
-                radial-gradient(circle, rgba(45, 66, 85, 0.08) 1.5px, transparent 1.5px),
-                linear-gradient(135deg, rgba(45, 66, 85, 0.20) 50%, transparent 50%),
-                linear-gradient(225deg, rgba(78, 109, 128, 0.16) 38%, transparent 38%),
-                linear-gradient(315deg, rgba(78, 109, 128, 0.15) 44%, transparent 44%),
-                linear-gradient(45deg,  rgba(139, 160, 176, 0.13) 32%, transparent 32%),
+                radial-gradient(circle, rgba(45, 66, 85, 0.05) 1.5px, transparent 1.5px),
+                linear-gradient(135deg, rgba(45, 66, 85, 0.10) 50%, transparent 50%),
+                linear-gradient(225deg, rgba(78, 109, 128, 0.08) 38%, transparent 38%),
+                linear-gradient(315deg, rgba(78, 109, 128, 0.075) 44%, transparent 44%),
+                linear-gradient(45deg,  rgba(139, 160, 176, 0.065) 32%, transparent 32%),
                 linear-gradient(135deg, rgba(255, 255, 255, 0.30) 28%, transparent 28%),
                 linear-gradient(315deg, rgba(255, 255, 255, 0.22) 22%, transparent 22%),
-                linear-gradient(155deg, rgba(45, 66, 85, 0.11) 36%, transparent 36%),
-                linear-gradient(335deg, rgba(78, 109, 128, 0.10) 32%, transparent 32%),
-                linear-gradient(25deg,  rgba(139, 160, 176, 0.10) 28%, transparent 28%),
-                linear-gradient(205deg, rgba(45, 66, 85, 0.09) 24%, transparent 24%);
+                linear-gradient(155deg, rgba(45, 66, 85, 0.055) 36%, transparent 36%),
+                linear-gradient(335deg, rgba(78, 109, 128, 0.05) 32%, transparent 32%),
+                linear-gradient(25deg,  rgba(139, 160, 176, 0.05) 28%, transparent 28%),
+                linear-gradient(205deg, rgba(45, 66, 85, 0.045) 24%, transparent 24%);
             background-size: 22px 22px, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh;
             background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
             background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -1223,9 +1223,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             /* Fundo de Produtos no mobile: claro e suave do início ao fim, como no bloco de Persianas */
             #produtos {
                 background-image:
-                    radial-gradient(circle, rgba(45, 66, 85, 0.07) 1.5px, transparent 1.5px),
+                    radial-gradient(circle, rgba(45, 66, 85, 0.05) 1.5px, transparent 1.5px),
                     linear-gradient(135deg, rgba(255, 255, 255, 0.55) 34%, transparent 34%),
-                    linear-gradient(315deg, rgba(139, 160, 176, 0.14) 30%, transparent 30%);
+                    linear-gradient(315deg, rgba(139, 160, 176, 0.08) 30%, transparent 30%);
                 background-size: 22px 22px, 100% 46rem, 100% 46rem;
                 background-repeat: repeat, repeat-y, repeat-y;
                 background-attachment: scroll;
@@ -2324,55 +2324,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Faixa de Autoridade — Movida para perto do rodapé -->
-    <section id="autoridade" class="hidden md:block sm:pb-24 relative pt-16 sm:pt-20" aria-labelledby="autoridade-titulo">
+    <section id="autoridade" class="hidden md:block relative" aria-labelledby="autoridade-titulo">
         <div class="autoridade-cards-wrap section-container w-full">
             <h2 id="autoridade-titulo" class="sr-only">Nossos diferenciais</h2>
             
             <div class="autoridade-cards">
                 
                 <!-- Item 1: Experiência -->
-                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="0">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <!-- Círculo decorativo de fundo (Efeito Hover) -->
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <!-- Círculo principal -->
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <svg class="icone text-3xl sm:text-4xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-6 lg:p-7 shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="0">
+                    <!-- Ícone ao lado do título para o card ficar mais baixo -->
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="relative w-12 h-12 lg:w-14 lg:h-14 shrink-0">
+                            <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.2] group-hover:scale-[1.4] transition-transform duration-motion"></div>
+                            <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                                <svg class="icone text-lg lg:text-xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+                            </div>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="font-display text-2xl lg:text-3xl text-brand-blue font-bold leading-tight">28 Anos</h3>
+                            <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-1">de Tradição</p>
                         </div>
                     </div>
-                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">28 Anos</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
-                    <!-- Linha divisória delicada -->
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
+                    <p class="text-sm text-gray-500 font-normal leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
                 </div>
     
                 <!-- Item 2: Avaliação -->
-                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <svg class="icone text-3xl sm:text-4xl" style="width:1.125em" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
+                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-6 lg:p-7 shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Ícone ao lado do título para o card ficar mais baixo -->
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="relative w-12 h-12 lg:w-14 lg:h-14 shrink-0">
+                            <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.2] group-hover:scale-[1.4] transition-transform duration-motion"></div>
+                            <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                                <svg class="icone text-lg lg:text-xl" style="width:1.125em" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
+                            </div>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="font-display text-2xl lg:text-3xl text-brand-blue font-bold leading-tight">Nota 4,9</h3>
+                            <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-1">no Google</p>
                         </div>
                     </div>
-                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Nota 4,9</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Mais de 260 avaliações de clientes de Curitiba e região.</p>
+                    <p class="text-sm text-gray-500 font-normal leading-relaxed">Mais de 260 avaliações de clientes de Curitiba e região.</p>
                 </div>
     
                 <!-- Item 3: Personalização -->
-                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <svg class="icone text-3xl sm:text-4xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-ruler-combined"/></svg>
+                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-6 lg:p-7 shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Ícone ao lado do título para o card ficar mais baixo -->
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="relative w-12 h-12 lg:w-14 lg:h-14 shrink-0">
+                            <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.2] group-hover:scale-[1.4] transition-transform duration-motion"></div>
+                            <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                                <svg class="icone text-lg lg:text-xl" style="width:1em" aria-hidden="true" focusable="false"><use href="#i-ruler-combined"/></svg>
+                            </div>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="font-display text-2xl lg:text-3xl text-brand-blue font-bold leading-tight">Sob Medida</h3>
+                            <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-1">Medição e Instalação Inclusas</p>
                         </div>
                     </div>
-                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Medição e Instalação Inclusas</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Caimento perfeito e acabamento impecável, do orçamento à instalação.</p>
+                    <p class="text-sm text-gray-500 font-normal leading-relaxed">Caimento perfeito e acabamento impecável, do orçamento à instalação.</p>
                 </div>
     
             </div>
