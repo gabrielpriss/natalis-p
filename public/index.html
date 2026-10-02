@@ -127,17 +127,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             min-width: 0;
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
-            padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
-        }
-        @media (min-width: 768px) {
-            body { padding-bottom: 0; }
         }
         img, video, svg {
             max-width: 100%;
             height: auto;
-        }
-        #whatsapp-barra {
-            padding-bottom: env(safe-area-inset-bottom, 0);
         }
         .sr-only {
             position: absolute;
@@ -402,8 +395,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .produto-card__desc {
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.82);
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
             line-height: 1.55;
             max-height: 0;
             overflow: hidden;
@@ -1112,7 +1105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         @media (max-width: 639px) {
             #mapa { height: 220px !important; }
             #rodape-legal {
-                padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)) !important;
+                padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)) !important;
             }
             #whatsapp-flutuante {
                 bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
@@ -1152,6 +1145,157 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 background-attachment: scroll;
                 background-size: 22px 22px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
             }
+        }
+
+        /* ── Cabeçalho fixo com menu das seções (somente mobile) ─────────── */
+        #menu-mobile {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            body {
+                padding-top: 3.5rem;
+            }
+            section[id],
+            header[id],
+            footer[id],
+            article[id] {
+                scroll-margin-top: 4rem;
+            }
+            #menu-mobile {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 60;
+                background: rgba(255, 255, 255, 0.96);
+                -webkit-backdrop-filter: blur(8px);
+                backdrop-filter: blur(8px);
+                box-shadow: 0 2px 12px rgba(26, 37, 53, 0.12);
+            }
+            .menu-mobile__barra {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 3.5rem;
+                padding: 0 1rem;
+            }
+            .menu-mobile__logo img {
+                display: block;
+                height: 2.5rem;
+                width: auto;
+            }
+            .menu-mobile__botao {
+                width: 2.75rem;
+                height: 2.75rem;
+                margin-right: -0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                background: none;
+                color: #2d4255;
+                font-size: 1.375rem;
+                cursor: pointer;
+            }
+            .menu-mobile__lista {
+                display: flex;
+                flex-direction: column;
+                padding: 0.25rem 1rem 0.75rem;
+                border-top: 1px solid rgba(45, 66, 85, 0.1);
+                max-height: calc(100dvh - 3.5rem);
+                overflow-y: auto;
+            }
+            .menu-mobile__lista[hidden] {
+                display: none;
+            }
+            .menu-mobile__lista a {
+                padding: 0.8rem 0.25rem;
+                font-size: 0.9375rem;
+                font-weight: 500;
+                color: #2d4255;
+                border-bottom: 1px solid rgba(45, 66, 85, 0.08);
+            }
+            .menu-mobile__lista a:last-child {
+                border-bottom: none;
+            }
+            /* A logo já está no cabeçalho fixo */
+            .hero-content .site-logo {
+                display: none;
+            }
+
+            /* Fundo de Produtos no mobile: claro e suave do início ao fim, como no bloco de Persianas */
+            #produtos {
+                background-image:
+                    radial-gradient(circle, rgba(45, 66, 85, 0.07) 1.5px, transparent 1.5px),
+                    linear-gradient(135deg, rgba(255, 255, 255, 0.55) 34%, transparent 34%),
+                    linear-gradient(315deg, rgba(139, 160, 176, 0.14) 30%, transparent 30%);
+                background-size: 22px 22px, 100% 46rem, 100% 46rem;
+                background-repeat: repeat, repeat-y, repeat-y;
+                background-attachment: scroll;
+            }
+        }
+
+        /* ── Popup de produto ────────────────────────────────────────────── */
+        .produto-card:focus-visible {
+            outline: 3px solid #4e6d80;
+            outline-offset: -3px;
+        }
+        .produto-modal {
+            width: min(26rem, calc(100vw - 2rem));
+            max-height: calc(100dvh - 2rem);
+            padding: 0;
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden auto;
+            background: #fff;
+            color: #1a2535;
+            box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.45);
+        }
+        .produto-modal::backdrop {
+            background: rgba(26, 37, 53, 0.65);
+        }
+        .produto-modal[open] {
+            animation: produtoModalIn 0.22s ease-out;
+        }
+        @keyframes produtoModalIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .produto-modal[open] { animation: none; }
+        }
+        .produto-modal__foto {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #2d4255;
+        }
+        .produto-modal__foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .produto-modal__corpo {
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+        .produto-modal__fechar {
+            position: absolute;
+            top: 0.625rem;
+            right: 0.625rem;
+            z-index: 2;
+            width: 2.25rem;
+            height: 2.25rem;
+            border: none;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #2d4255;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* ── Identidade Visual: Estrela 4 pontas nos rótulos de seção ─────── */
@@ -1381,6 +1525,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Cabeçalho fixo (somente mobile): logo + menu com as seções -->
+    <div id="menu-mobile">
+        <div class="menu-mobile__barra">
+            <a href="#inicio" class="menu-mobile__logo" aria-label="Nátalis Persianas, voltar ao início">
+                <img src="assets/natalis-persianas-logo.webp" alt="Nátalis Persianas" width="872" height="499">
+            </a>
+            <button type="button" id="menu-mobile-botao" class="menu-mobile__botao" aria-expanded="false" aria-controls="menu-mobile-lista" aria-label="Abrir menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+        <nav id="menu-mobile-lista" class="menu-mobile__lista" aria-label="Navegação principal" hidden>
+            <a href="#inicio">Início</a>
+            <a href="#galeria">Projetos</a>
+            <a href="#depoimentos">Avaliações</a>
+            <a href="#cortinas">Cortinas</a>
+            <a href="#persianas">Persianas</a>
+            <a href="#institucional">Nossa História</a>
+            <a href="#antes-depois">Antes e Depois</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+
     <main id="conteudo-principal">
 
     <!-- 1. Dobra Principal (Hero) — slider de fundo automático -->
@@ -1404,7 +1570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 Persianas e Cortinas Sob Medida em Curitiba
             </h1>
             
-            <p class="hero-text text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 font-light leading-relaxed">
+            <p class="hero-text text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 font-medium leading-relaxed">
                 Somos uma loja de persianas e cortinas em Curitiba há mais de 28 anos. Trabalhamos com modelos blackout, rolô, romana, double vision e cortinas wave para casa e escritório, com medição e instalação inclusas no orçamento.
             </p>
             
@@ -1429,7 +1595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-white/80 mb-3">Portfólio</p>
                 <h2 id="galeria-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Projetos de Cortinas e Persianas em Curitiba</h2>
                 <div class="w-14 h-px bg-white/40 mx-auto mb-4" aria-hidden="true"></div>
-                <p class="text-white/70 font-light text-sm sm:text-base max-w-2xl mx-auto">Projetos reais de cortinas e persianas sob medida que instalamos em casas, apartamentos e escritórios de Curitiba e região.</p>
+                <p class="text-white/70 font-normal text-sm sm:text-base max-w-2xl mx-auto">Projetos reais de cortinas e persianas sob medida que instalamos em casas, apartamentos e escritórios de Curitiba e região.</p>
             </div>
 
             <div
@@ -1527,7 +1693,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Soluções</p>
                 <h2 id="produtos-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-4">Cortinas e Persianas Sob Medida</h2>
                 <div class="w-14 h-px bg-brand-cyan mx-auto mb-4" aria-hidden="true"></div>
-                <p class="text-gray-500 font-light text-sm sm:text-base max-w-2xl mx-auto px-1">Trabalhamos com tecidos blackout, translúcidos e em linho para garantir o controle exato da luz, da privacidade e do conforto em cada ambiente.</p>
+                <p class="text-gray-500 font-normal text-sm sm:text-base max-w-2xl mx-auto px-1">Trabalhamos com tecidos blackout, translúcidos e em linho para garantir o controle exato da luz, da privacidade e do conforto em cada ambiente.</p>
             </div>
             
             <!-- Cortinas: cabeçalho à esquerda + grade full-bleed portrait -->
@@ -1663,7 +1829,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </article>
             
             <div id="produtos-cta" class="text-center mt-12 sm:mt-20 px-2">
-                <p class="text-brand-blue font-light text-lg sm:text-xl mb-5 sm:mb-6">Tecidos blackout, translúcidos e em linho, escolhidos para cada projeto</p>
+                <p class="text-brand-blue font-normal text-lg sm:text-xl mb-5 sm:mb-6">Tecidos blackout, translúcidos e em linho, escolhidos para cada projeto</p>
                 <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
                     <i class="fab fa-whatsapp text-lg text-[#25D366]" aria-hidden="true"></i>
                     Solicitar meu atendimento exclusivo
@@ -1710,7 +1876,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Transformações</p>
                 <h2 id="antes-depois-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-4">Antes e Depois: Persianas e Cortinas Instaladas</h2>
                 <div class="w-14 h-px bg-brand-cyan mx-auto mb-4" aria-hidden="true"></div>
-                <p class="text-gray-600 font-light text-sm sm:text-base max-w-2xl mx-auto">Arraste o controle sobre cada foto e veja como a persiana ou cortina certa transforma o ambiente.</p>
+                <p class="text-gray-600 font-normal text-sm sm:text-base max-w-2xl mx-auto">Arraste o controle sobre cada foto e veja como a persiana ou cortina certa transforma o ambiente.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -1731,7 +1897,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <figcaption class="mt-4 text-center">
                         <p class="font-display font-bold text-brand-blue text-lg">Varanda Gourmet</p>
-                        <p class="text-sm text-gray-500 font-light">Persiana dupla sob medida</p>
+                        <p class="text-sm text-gray-500 font-normal">Persiana dupla sob medida</p>
                     </figcaption>
                 </figure>
 
@@ -1751,7 +1917,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <figcaption class="mt-4 text-center">
                         <p class="font-display font-bold text-brand-blue text-lg">Quarto</p>
-                        <p class="text-sm text-gray-500 font-light">Persiana rolô blackout</p>
+                        <p class="text-sm text-gray-500 font-normal">Persiana rolô blackout</p>
                     </figcaption>
                 </figure>
 
@@ -1771,16 +1937,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <figcaption class="mt-4 text-center">
                         <p class="font-display font-bold text-brand-blue text-lg">Sala com Pé-Direito Duplo</p>
-                        <p class="text-sm text-gray-500 font-light">Cortina wave com voil</p>
+                        <p class="text-sm text-gray-500 font-normal">Cortina wave com voil</p>
                     </figcaption>
                 </figure>
 
+            </div>
+
+            <div id="antes-depois-cta" class="text-center mt-10 sm:mt-14 px-2" data-aos="fade-up">
+                <p class="text-brand-blue font-normal text-lg sm:text-xl mb-5 sm:mb-6">Quer ver essa transformação no seu ambiente?</p>
+                <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Vi%20os%20antes%20e%20depois%20no%20site%20da%20N%C3%A1talis%20Persianas%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20ambiente." target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg">
+                    <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                    Solicitar orçamento gratuito
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Faixa de Autoridade — Movida para perto do rodapé -->
-    <section id="autoridade" class="sm:pb-24 relative pt-16 sm:pt-20" aria-labelledby="autoridade-titulo">
+    <section id="autoridade" class="hidden md:block sm:pb-24 relative pt-16 sm:pt-20" aria-labelledby="autoridade-titulo">
         <div class="autoridade-cards-wrap section-container w-full">
             <h2 id="autoridade-titulo" class="sr-only">Nossos diferenciais</h2>
             
@@ -1800,7 +1974,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
                     <!-- Linha divisória delicada -->
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
+                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
                 </div>
     
                 <!-- Item 2: Avaliação -->
@@ -1814,7 +1988,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Nota 4,9</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Mais de 260 avaliações de clientes de Curitiba e região.</p>
+                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Mais de 260 avaliações de clientes de Curitiba e região.</p>
                 </div>
     
                 <!-- Item 3: Personalização -->
@@ -1828,7 +2002,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Medição e Instalação Inclusas</p>
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável, do orçamento à instalação.</p>
+                    <p class="text-sm sm:text-base text-gray-500 font-normal leading-relaxed">Caimento perfeito e acabamento impecável, do orçamento à instalação.</p>
                 </div>
     
             </div>
@@ -1860,27 +2034,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Col 1: Marca + info -->
             <div id="quem-somos" data-aos="fade-up">
                 <img src="assets/natalis-persianas-logo-branca.webp" alt="Nátalis Persianas" class="h-16 sm:h-20 w-auto mb-5" width="872" height="496" loading="lazy">
-                <p class="text-sm font-light leading-relaxed text-white/70 mb-6 max-w-xs">
+                <p class="text-sm font-normal leading-relaxed text-white/70 mb-6 max-w-xs">
                     Há mais de 28 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
                 </p>
-                <div class="space-y-3 text-sm font-light text-white/70">
+                <div class="space-y-3 text-sm font-normal text-white/70">
                     <p class="flex items-center gap-2">
                         <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
                         Seg a Sex, 09:00 às 17:30
                     </p>
-                    <p class="flex items-start gap-2">
-                        <i class="fas fa-phone fa-fw mt-0.5 shrink-0" aria-hidden="true"></i>
-                        <span class="break-words">(41) 3222-5333<br class="sm:hidden"> <span class="hidden sm:inline">| </span>(41) 99961-3079</span>
+                    <p>
+                        <a href="https://wa.me/5541999613079?text=Ol%C3%A1!%20Encontrei%20o%20contato%20de%20voc%C3%AAs%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20na%20N%C3%A1talis%20Persianas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors" aria-label="Chamar a Nátalis Persianas no WhatsApp, (41) 99961-3079">
+                            <i class="fab fa-whatsapp fa-fw text-base" aria-hidden="true"></i>
+                            (41) 99961-3079
+                        </a>
                     </p>
                     <p class="flex items-start gap-2">
                         <i class="fas fa-location-dot fa-fw mt-0.5 shrink-0" aria-hidden="true"></i>
                         <span>Av. Pres. Getúlio Vargas, 1153, Loja 39<br>Rebouças, Curitiba, PR, 80250-180<br><span class="text-white/60">🚗 Estacionamento próprio</span></span>
-                    </p>
-                    <p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Curitiba" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors">
-                            <i class="fab fa-google" aria-hidden="true"></i>
-                            Ver Nátalis Persianas no Google Maps
-                        </a>
                     </p>
                 </div>
             </div>
@@ -1901,7 +2071,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Col 3: Fale conosco -->
             <div class="sm:col-span-2 lg:col-span-1">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-5">Fale Conosco</h4>
-                <p class="text-sm text-white/70 font-light mb-5 leading-relaxed">Solicite um orçamento gratuito. Atendemos em Curitiba e região com medição e instalação inclusa.</p>
+                <p class="text-sm text-white/70 font-normal mb-5 leading-relaxed">Solicite um orçamento gratuito. Atendemos em Curitiba e região com medição e instalação inclusa.</p>
                 <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-2.5 rounded-md hover:bg-[#1ebd5a] transition">
                     <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
                     Chamar no WhatsApp
@@ -1910,21 +2080,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- Copyright -->
-        <div id="rodape-legal" class="section-container py-5 pb-28 md:pb-5 border-t border-white/10 text-center text-xs text-white/80">
-            © 2026 Nátalis Persianas · Todos os direitos reservados
+        <div id="rodape-legal" class="section-container py-5 border-t border-white/10 text-center text-xs text-white/80">
+            © 2026 Nátalis Persianas · Todos os direitos reservados · Desenvolvido por <a href="https://conceitop.com.br" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white transition-colors">Conceito Prime</a>
         </div>
     </footer>
 
-    <!-- BOTÃO WHATSAPP MOBILE (Barra Fixa na base) -->
-    <div id="whatsapp-barra" class="md:hidden fixed bottom-0 left-0 w-full z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.15)]">
-        <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine flex items-center justify-center w-full min-h-[56px] bg-[#25D366] text-white py-3.5 sm:py-4 font-bold text-sm sm:text-[15px] hover:bg-[#1ebd5a] transition uppercase tracking-wide px-4">
-            <i class="fab fa-whatsapp text-2xl mr-2" aria-hidden="true"></i>
-            Falar no WhatsApp
-        </a>
-    </div>
+    <!-- Popup de produto: preenchido via JS ao clicar em um card de Cortinas ou Persianas -->
+    <dialog id="produto-modal" class="produto-modal" aria-labelledby="produto-modal-titulo">
+        <button type="button" class="produto-modal__fechar" id="produto-modal-fechar" aria-label="Fechar">
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="produto-modal__foto">
+            <img id="produto-modal-img" src="" alt="">
+        </div>
+        <div class="produto-modal__corpo">
+            <h3 id="produto-modal-titulo" class="font-display text-2xl font-bold text-brand-blue mb-2"></h3>
+            <p id="produto-modal-desc" class="text-gray-600 text-sm sm:text-base leading-relaxed mb-5"></p>
+            <a id="produto-modal-cta" href="#" target="_blank" rel="noopener noreferrer" class="btn-shine flex w-full items-center justify-center gap-2 bg-[#25D366] text-white font-bold text-sm px-5 py-3 rounded-md hover:bg-[#1ebd5a] transition uppercase tracking-wider">
+                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                Pedir orçamento deste modelo
+            </a>
+        </div>
+    </dialog>
 
-    <!-- BOTÃO WHATSAPP DESKTOP (Botão Flutuante Redondo) -->
-    <a id="whatsapp-flutuante" href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hidden md:flex fixed bottom-6 lg:bottom-8 right-6 lg:right-8 bg-[#25D366] text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] justify-center items-center hover:bg-[#1ebd5a] transition-transform transform hover:scale-110 z-50" aria-label="Falar no WhatsApp">
+    <!-- BOTÃO WHATSAPP (flutuante redondo, em todas as larguras) -->
+    <a id="whatsapp-flutuante" href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Eu+gostaria+de+um+or%C3%A7amento+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="flex fixed bottom-4 md:bottom-6 lg:bottom-8 right-4 md:right-6 lg:right-8 bg-[#25D366] text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] justify-center items-center hover:bg-[#1ebd5a] transition-transform transform hover:scale-110 z-50" aria-label="Falar no WhatsApp">
         <i class="fab fa-whatsapp text-3xl" aria-hidden="true"></i>
     </a>
 
@@ -2477,6 +2657,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             apply();
         });
     });
+    </script>
+
+    <!-- Menu mobile e popup de produto -->
+    <script>
+    (function () {
+        var botao = document.getElementById('menu-mobile-botao');
+        var lista = document.getElementById('menu-mobile-lista');
+        if (botao && lista) {
+            var icone = botao.querySelector('i');
+            var definir = function (aberto) {
+                lista.hidden = !aberto;
+                botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+                botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+                icone.className = aberto ? 'fas fa-xmark' : 'fas fa-bars';
+            };
+            botao.addEventListener('click', function () { definir(lista.hidden); });
+            lista.addEventListener('click', function (e) {
+                if (e.target.closest('a')) definir(false);
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') definir(false);
+            });
+            document.addEventListener('click', function (e) {
+                if (!lista.hidden && !e.target.closest('#menu-mobile')) definir(false);
+            });
+        }
+
+        var modal = document.getElementById('produto-modal');
+        if (!modal || typeof modal.showModal !== 'function') return;
+        var modalImg = document.getElementById('produto-modal-img');
+        var modalTitulo = document.getElementById('produto-modal-titulo');
+        var modalDesc = document.getElementById('produto-modal-desc');
+        var modalCta = document.getElementById('produto-modal-cta');
+
+        function abrir(card) {
+            var img = card.querySelector('img');
+            var titulo = card.querySelector('.produto-card__titulo').textContent.trim();
+            modalImg.src = img.getAttribute('src');
+            modalImg.alt = img.alt;
+            modalImg.classList.toggle('is-flipped', img.classList.contains('is-flipped'));
+            modalTitulo.textContent = titulo;
+            modalDesc.textContent = card.querySelector('.produto-card__desc').textContent.trim();
+            modalCta.href = 'https://wa.me/5541999613079?text=' + encodeURIComponent(
+                'Olá! Vi a ' + titulo + ' no site da Nátalis Persianas e gostaria de um orçamento.'
+            );
+            modal.showModal();
+        }
+
+        document.querySelectorAll('#cortinas-galeria .produto-card, #persianas-galeria .produto-card').forEach(function (card) {
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('click', function () { abrir(card); });
+            card.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    abrir(card);
+                }
+            });
+        });
+
+        document.getElementById('produto-modal-fechar').addEventListener('click', function () { modal.close(); });
+        /* Clique fora da caixa (no fundo escurecido) fecha */
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) modal.close();
+        });
+    })();
     </script>
 
 </body>
