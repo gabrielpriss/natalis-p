@@ -21,13 +21,12 @@ Número: `5541999613079`
 Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 
 ## SEO atual
-- Title: "Nátalis Persianas, Elegância e Conforto"
+- Title: "Persianas e Cortinas Sob Medida em Curitiba | Nátalis"
 - Meta description: configurada
 - Canonical: `https://natalispersianas.com.br/`
 - Open Graph + Twitter Card: configurados (`public/og-image.jpg`, 1200x630)
 - Schema.org: JSON-LD `LocalBusiness` no `<head>`
-- sitemap.xml: não existe ainda
-- robots.txt: não existe ainda
+- `public/sitemap.xml` (só a home; atualizar `lastmod` quando o conteúdo mudar) e `public/robots.txt`
 
 ## Assets
 - Imagens em `/public/assets/` — formato WebP preferido
@@ -37,7 +36,7 @@ Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 
 ## Pendências SEO
 - [x] Adicionar `<link rel="canonical">`
-- [ ] Criar `sitemap.xml`
-- [ ] Criar `robots.txt`
+- [x] Criar `sitemap.xml`
+- [x] Criar `robots.txt`
 - [x] Adicionar Schema.org LocalBusiness em JSON-LD
 - [ ] Converter links WhatsApp de `api.whatsapp` para `wa.me`
