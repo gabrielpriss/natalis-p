@@ -43,4 +43,5 @@ Sempre usar `wa.me`: `https://wa.me/5541999613079?text=...`
 - [x] Criar `robots.txt`
 - [x] Adicionar Schema.org LocalBusiness em JSON-LD
 - [x] Converter links WhatsApp de `api.whatsapp` para `wa.me`
-- [ ] FAQ visível na página (precisa das respostas da cliente: prazo, garantia, pagamento, área atendida)
+- [x] FAQ visível (`#faq`) com JSON-LD `FAQPage`, só com fatos já afirmados na página
+- [ ] Ampliar o FAQ com respostas da cliente: prazo de entrega, garantia, formas de pagamento, cidades atendidas
